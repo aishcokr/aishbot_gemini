@@ -16,8 +16,9 @@
 6. [Vercel 배포 & Gemini 키 설정](#6-vercel-배포--gemini-키-설정)
 7. [GitHub Actions로 데이터 자동 갱신](#7-github-actions로-데이터-자동-갱신)
 8. [챗봇 업데이트 방법](#8-챗봇-업데이트-방법)
-9. [자주 발생하는 문제 해결](#9-자주-발생하는-문제-해결)
-10. [파일별 역할 요약](#10-파일별-역할-요약)
+9. [다른 사이트에 위젯으로 붙이기](#9-다른-사이트에-위젯으로-붙이기)
+10. [자주 발생하는 문제 해결](#10-자주-발생하는-문제-해결)
+11. [파일별 역할 요약](#11-파일별-역할-요약)
 
 ---
 
@@ -231,17 +232,6 @@ git branch -M main
 git push -u origin main
 ```
 
-### 두 계정(저장소)에 같이 올리고 싶을 때
-
-```bash
-# 예: jk0601 + aishcokr
-git remote add origin https://github.com/jk0601/aishbot.git
-git remote add aishco  https://github.com/aishcokr/aishbot.git
-
-git push origin main
-git push aishco main
-```
-
 > `git pull` / `git push` 기본 대상은 **추적 중인 remote**(`origin` 등)입니다.  
 > Active GitHub 계정(`gh auth status`)은 **인증(누구 권한으로)** 이고, remote URL은 **어디로** 보낼지입니다.
 
@@ -391,7 +381,73 @@ Gemini 키는 GitHub이 아니라 **Vercel 환경변수**에 등록합니다 ([6
 
 ---
 
-## 9. 자주 발생하는 문제 해결
+## 9. 다른 사이트에 위젯으로 붙이기
+
+> 📘 **설치 절차·도메인 등록·문제 해결을 단계별로 다룬 상세 가이드: [WIDGET.md](WIDGET.md)**
+> 이 장은 요약이며, 실제 설치는 위 문서를 따라가시는 것이 편합니다.
+
+AI 도우미 버튼만 떼어내 **다른 웹사이트에 스크립트 한 줄로** 붙일 수 있습니다.
+붙이는 쪽이 GitHub Pages처럼 백엔드가 없어도 됩니다 — AI 호출은 전부 이 Vercel 프로젝트가 처리합니다.
+
+```
+회사 홈페이지 (GitHub Pages)            이 Vercel 프로젝트
+  <script src=".../widget.js">   ──>   widget.js 전송
+       버튼·패널 자동 생성
+       질문 입력  ─────────────────>   /api/chat  ──>  Gemini
+                                        (키는 여기에만 존재)
+```
+
+### Step 1: 붙일 사이트에 스크립트 한 줄
+
+```html
+<script src="https://<프로젝트명>.vercel.app/widget.js" defer></script>
+```
+
+HTML 구조를 바꾸거나 CSS를 추가할 필요가 없습니다. 버튼과 패널을 위젯이 스스로 만듭니다.
+**Shadow DOM** 안에서 렌더링하므로 붙이는 사이트의 CSS와 서로 간섭하지 않습니다.
+
+### Step 2: Vercel 환경변수에 도메인 등록 ★ 필수
+
+이 단계를 빠뜨리면 `/api/chat`이 **403**으로 차단됩니다.
+
+Vercel → Settings → Environment Variables → `ALLOWED_ORIGINS` 추가 후 **Redeploy**
+
+```
+ALLOWED_ORIGINS=https://aish.github.io
+```
+
+- **Origin에는 경로를 넣지 않습니다.** `https://aish.github.io/aish/` → `https://aish.github.io`
+- 여러 사이트는 쉼표로 구분: `https://a.github.io,https://aish.co.kr`
+- 이 Vercel 도메인 자신은 등록하지 않아도 항상 허용됩니다
+
+### 옵션 (script 태그의 `data-*` 속성)
+
+| 속성 | 기본값 | 설명 |
+|---|---|---|
+| `data-api` | 스크립트 도메인 + `/api/chat` | API 주소 |
+| `data-faq` | 스크립트 도메인 + `/data/faq.json` | FAQ JSON 주소 |
+| `data-title` | `AI 도우미` | 버튼·패널 제목 |
+| `data-subtitle` | `FAQ + Gemini AI` | 패널 부제 |
+| `data-greeting` | (기본 인사말) | 첫 인사말 |
+
+```html
+<!-- 사이트마다 다른 FAQ·제목을 쓰고 싶을 때 -->
+<script src="https://<프로젝트명>.vercel.app/widget.js"
+        data-title="회사 도우미"
+        data-faq="https://<프로젝트명>.vercel.app/data/company_faq.json"
+        defer></script>
+```
+
+### 알아두실 점
+
+- **`widget.js`는 캐시가 5분**입니다(`vercel.json`). 위젯을 수정하고 배포해도 최대 5분간 옛 버전이 보일 수 있습니다.
+- **`data/faq.json`과 `widget.js`는 누구나 읽을 수 있습니다**(`Access-Control-Allow-Origin: *`). 공개 데이터이므로 문제없지만, 비공개 내용을 FAQ에 넣지 마세요.
+- **Origin 검사는 브라우저 요청만 막습니다.** `curl` 같은 직접 호출은 못 막으므로, 붙이는 사이트가 많아지면 호출 제한 추가를 검토하세요.
+- 메인 사이트(`index.html`)는 위젯이 아니라 [chatbot.js](chatbot.js)를 씁니다. 두 파일의 검색·AI 로직이 같으므로, 동작을 바꿀 때는 **양쪽 모두 수정**해야 합니다.
+
+---
+
+## 10. 자주 발생하는 문제 해결
 
 ### 날씨/뉴스/시세가 "불러오는 중"에서 멈춤
 
@@ -475,18 +531,20 @@ pull로 들어온 JSON은 Actions 커밋이지, 내 커밋에 억지로 넣을 �
 
 ---
 
-## 10. 파일별 역할 요약
+## 11. 파일별 역할 요약
 
 | 파일 | 역할 | 수정 빈도 |
 |------|------|-----------|
 | `index.html` | 페이지 구조 + 챗봇 UI | UI 변경 시 |
 | `style.css` | 전체 스타일 · 챗봇 · AI 배지 · 반응형 | 디자인 변경 시 |
 | `script.js` | 명언 · 각 섹션 JSON 렌더링 | 거의 없음 |
-| `chatbot.js` | FAQ 검색 · AI 폴백 호출 · 패널 제어 | 동작 조정 시 |
-| `api/chat.js` | **Gemini 프록시 (서버 실행 · 키 보관)** | 모델·프롬프트 변경 시 |
+| `chatbot.js` | 메인 사이트용 챗봇 (FAQ 검색 + AI 폴백) | 동작 조정 시 |
+| `widget.js` | **외부 사이트 임베드용 위젯** (Shadow DOM 자기완결형) | 동작 조정 시 |
+| `api/chat.js` | **Gemini 프록시 (서버 실행 · 키 보관 · CORS 판정)** | 모델·프롬프트 변경 시 |
 | `vercel.json` | Vercel 배포 설정 | 거의 없음 |
 | `.env.example` | 환경변수 템플릿 | 거의 없음 |
 | `.gitignore` | 키 파일 커밋 차단 | 거의 없음 |
+| `WIDGET.md` | **위젯 설치 가이드 (외부 사이트용)** | 절차 변경 시 |
 | `data/weather.json` | 날씨·코디 (Actions) | 자동 |
 | `data/news.json` | 뉴스 (Actions) | 자동 |
 | `data/finance.json` | 시장 지수 (Actions) | 자동 |

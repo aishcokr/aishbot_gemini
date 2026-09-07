@@ -59,25 +59,66 @@ function readBody(req) {
   return req.body;
 }
 
-/** 같은 사이트에서 온 요청인지 확인 (외부 사이트의 무단 사용 차단) */
-function isSameOrigin(req) {
+/**
+ * 요청 Origin을 판정합니다.
+ *  - 같은 도메인(이 사이트 자체)은 항상 허용
+ *  - 외부 도메인은 ALLOWED_ORIGINS 환경변수 목록에 있을 때만 허용
+ *    예) ALLOWED_ORIGINS=https://jk0601.github.io,https://aish.co.kr
+ *
+ * @returns {string|null|false}
+ *   문자열 = 허용된 Origin (CORS 헤더에 그대로 사용)
+ *   null   = Origin 헤더 없음 (브라우저 외부 요청 — 통과)
+ *   false  = 차단
+ */
+function resolveOrigin(req) {
   const origin = req.headers.origin;
-  if (!origin) return true; // 브라우저가 Origin을 안 붙인 경우는 통과
+  if (!origin) return null;
+
+  let host;
   try {
-    return new URL(origin).host === req.headers.host;
+    host = new URL(origin).host;
   } catch (e) {
     return false;
   }
+
+  if (host === req.headers.host) return origin; // 같은 사이트
+
+  const allowed = (process.env.ALLOWED_ORIGINS || "")
+    .split(",")
+    .map(function (s) { return s.trim().replace(/\/+$/, ""); })
+    .filter(Boolean);
+
+  return allowed.includes(origin.replace(/\/+$/, "")) ? origin : false;
 }
 
 module.exports = async function handler(req, res) {
+  const origin = resolveOrigin(req);
+
+  /* 허용된 외부 도메인에는 CORS 헤더를 붙여줍니다 */
+  if (origin) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+
+  /* 브라우저가 본 요청 전에 보내는 프리플라이트 */
+  if (req.method === "OPTIONS") {
+    if (origin === false) return res.status(403).end();
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Max-Age", "86400");
+    return res.status(204).end();
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "POST, OPTIONS");
     return res.status(405).json({ error: "POST 요청만 허용됩니다." });
   }
 
-  if (!isSameOrigin(req)) {
-    return res.status(403).json({ error: "허용되지 않은 요청입니다." });
+  if (origin === false) {
+    console.warn("[api/chat] 차단된 Origin:", req.headers.origin);
+    return res.status(403).json({
+      error: "허용되지 않은 도메인입니다. ALLOWED_ORIGINS 환경변수를 확인하세요.",
+    });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;

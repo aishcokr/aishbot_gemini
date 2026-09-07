@@ -6,4 +6,5 @@ scripts/
 requirements.txt
 dev-server.js
 README.md
+WIDGET.md
 .env.example
