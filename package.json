@@ -1,0 +1,10 @@
+{
+  "name": "daily-insights",
+  "version": "1.0.0",
+  "private": true,
+  "description": "일일 인사이트 웹앱 — 명언·날씨·뉴스·시장지수·지원사업 + Gemini AI 챗봇",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js"
+  }
+}

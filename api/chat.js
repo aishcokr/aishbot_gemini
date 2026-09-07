@@ -14,8 +14,13 @@
 
 /* 모델은 환경변수로 교체 가능합니다 (GEMINI_MODEL).
    Google이 구세대 모델을 신규 사용자에게 차단하므로, 404가 나면
-   응답 메시지가 안내하는 최신 모델명으로 .env / Vercel 환경변수만 바꾸면 됩니다. */
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.6-flash";
+   응답 메시지가 안내하는 최신 모델명으로 .env / Vercel 환경변수만 바꾸면 됩니다.
+
+   기본값으로 flash-lite 계열을 쓰는 이유 — 같은 질문 실측 결과:
+     gemini-3.6-flash       35.0초   (추론을 꺼도 28초. 챗봇에는 너무 느림)
+     gemini-3.5-flash       16.8초
+     gemini-3.5-flash-lite   1.4초   ← 답변 품질은 충분하면서 25배 빠름          */
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/" +
   GEMINI_MODEL +

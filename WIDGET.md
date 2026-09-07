@@ -318,6 +318,7 @@ F12 → **Network** 탭에서 `chat` 요청의 상태 코드를 먼저 보세요
 | **500** | `서버에 API 키가 설정되지 않았습니다` | `GEMINI_API_KEY` 미설정 | 환경변수 등록 후 Redeploy |
 | **502** | `AI 서비스 오류 (403)` | Gemini 키/프로젝트 문제 | Vercel → Deployments → Functions 로그 확인 |
 | **502** | `AI 서비스 오류 (404)` | 모델명 만료 | `GEMINI_MODEL` 환경변수로 최신 모델 지정 |
+| (응답 없음) | `응답이 너무 오래 걸려 중단했습니다` | 느린 모델 사용 중 | `GEMINI_MODEL`을 `gemini-3.5-flash-lite`로 변경 |
 
 ### 403이 계속 나올 때 하나씩 확인
 

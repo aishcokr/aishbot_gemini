@@ -120,7 +120,7 @@ GitHub Actions
 - ②단계에서는 약하게 매칭된 FAQ 항목 최대 3개를 **근거 자료로 함께 전달**해, 이 사이트의 맥락에 맞는 답변이 나오도록 합니다.
 - AI가 생성한 답변에는 `✨ AI 생성 답변` 배지가 붙어 FAQ 답변과 구분됩니다.
 - 직전 대화 3턴을 기억해 이어지는 질문에도 대응합니다.
-- **남용 방지:** 세션당 AI 호출 30회 제한, 응답 대기 25초 제한 (`chatbot.js` 상단에서 조정 가능)
+- **남용 방지:** 세션당 AI 호출 30회 제한, 응답 대기 40초 제한 (`chatbot.js` 상단에서 조정 가능)
 - **FAQ 내용:** ChatGPT · Claude Code 사용 가이드 (`docs/` PDF 기반, 약 50개+ Q&A)
 - 데이터 파일: `data/faq.json` · 프론트 로직: `chatbot.js` · 서버 로직: `api/chat.js`
 
@@ -133,12 +133,17 @@ aishbot/   (또는 저장소 이름)
 ├── index.html                 ← 페이지 구조 + AI 챗봇 UI
 ├── style.css                  ← 디자인 (포레스트 그린 톤, 반응형)
 ├── script.js                  ← 명언 · 날씨 · 뉴스 · 금융 · 지원사업 렌더링
-├── chatbot.js                 ← 챗봇 프론트 (FAQ 검색 + AI 폴백 호출)
+├── chatbot.js                 ← 메인 사이트 챗봇 (FAQ 검색 + AI 폴백 호출)
+├── widget.js                  ← 외부 사이트 임베드용 위젯 (Shadow DOM)
+├── dev-server.js              ← 로컬 개발 서버 (의존성 0 · npm run dev)
+├── package.json               ← npm 스크립트 (dev/start). 의존성 없음
 ├── requirements.txt           ← Python 라이브러리 목록
-├── vercel.json                ← Vercel 배포 설정 (빌드 없음 · 캐시 헤더)
+├── vercel.json                ← Vercel 배포 설정 (빌드 없음 · 캐시/CORS 헤더)
+├── .vercelignore              ← 배포물에서 제외할 파일
 ├── .env.example               ← 환경변수 템플릿 (실제 키는 .env / Vercel에)
-├── .gitignore                 ← .env · config.js 등 커밋 차단
+├── .gitignore                 ← .env · 캐시 등 커밋 차단
 ├── README.md
+├── WIDGET.md                  ← 위젯 설치 가이드 (외부 사이트용)
 │
 ├── api/                       ← Vercel 서버리스 함수 (서버에서 실행)
 │   └── chat.js                ← Gemini 프록시. API 키는 여기서만 사용
@@ -168,9 +173,10 @@ aishbot/   (또는 저장소 이름)
 
 ## 4. 로컬에서 실행하기
 
-### 방법 1: `vercel dev` — **AI 챗봇까지 테스트하려면 이 방법**
+### 방법 1: `npm run dev` — **AI 챗봇까지 테스트하려면 이 방법** ⭐
 
-`api/chat.js`는 서버리스 함수라서, 일반 정적 서버로는 실행되지 않습니다.
+`api/chat.js`는 서버리스 함수라서 일반 정적 서버로는 실행되지 않습니다.
+`dev-server.js`가 정적 파일 서빙과 `/api/chat` 실행을 함께 처리합니다.
 
 ```bash
 # 1) .env 파일 만들고 키 넣기
@@ -178,12 +184,33 @@ cp .env.example .env          # Windows: copy .env.example .env
 #    .env 를 열어 GEMINI_API_KEY=... 채우기
 
 # 2) 개발 서버 실행 (Node.js 18+ 필요)
-npx vercel dev
+npm run dev
 ```
 
 브라우저에서 `http://localhost:3000` 접속 → 챗봇에 FAQ에 없는 질문을 던져 AI 답변을 확인합니다.
 
+```
+  Daily Insights — 로컬 개발 서버
+  ───────────────────────────────────────────
+  주소      http://localhost:3000
+  .env      로드됨
+  Gemini    키 설정됨 — AI 답변 사용 가능
+  ───────────────────────────────────────────
+```
+
+**설치할 것이 없습니다.** `dev-server.js`는 Node.js 내장 모듈(`http`·`fs`·`path`)만 사용하며 의존성이 0개입니다. `npm install`도 필요 없습니다.
+
+| 사항 | 내용 |
+|------|------|
+| 포트 변경 | `PORT=4000 npm run dev` (Windows PowerShell: `$env:PORT=4000; npm run dev`) |
+| `npm` 없이 | `node dev-server.js` — 위와 완전히 동일합니다 |
+| 키 교체 후 | **Ctrl+C → 재실행.** `.env`는 시작할 때 한 번만 읽습니다 |
+| 코드 수정 후 | `api/chat.js`는 매 요청마다 다시 읽으므로 재시작 불필요. 그 외 파일은 새로고침만 |
+
 > 키 발급: [Google AI Studio](https://aistudio.google.com/apikey) — 무료 등급으로 충분합니다.
+
+> **참고:** `npx vercel dev`로도 실행되지만 Vercel CLI 설치와 계정 로그인·프로젝트 연결이 필요합니다.
+> `npm run dev`는 그런 절차 없이 바로 뜨므로 이쪽을 권합니다.
 
 ### 방법 2: 정적 서버 — 화면만 확인할 때
 
@@ -375,8 +402,25 @@ Gemini 키는 GitHub이 아니라 **Vercel 환경변수**에 등록합니다 ([6
 |------|------|--------|------|
 | AI 호출 기준 | `chatbot.js` → `SCORE_GOOD` | `4` | 낮추면 FAQ를 더 신뢰(AI 호출↓), 높이면 AI를 더 자주 사용 |
 | 세션당 호출 상한 | `chatbot.js` → `AI_MAX_CALLS` | `30` | 할당량 보호용 |
-| 응답 대기 시간 | `chatbot.js` → `AI_TIMEOUT_MS` | `25000` | ms |
-| 사용 모델 | 환경변수 `GEMINI_MODEL` | `gemini-3.6-flash` | 코드 수정 없이 `.env` / Vercel 환경변수로 교체 |
+| 응답 대기 시간 | `chatbot.js` → `AI_TIMEOUT_MS` | `40000` | ms. 위젯은 `widget.js`에 별도로 있음 |
+| 사용 모델 | 환경변수 `GEMINI_MODEL` | `gemini-3.5-flash-lite` | 코드 수정 없이 `.env` / Vercel 환경변수로 교체 |
+
+### ⚠️ 모델 선택이 속도를 좌우합니다
+
+같은 질문으로 실측한 응답 시간입니다. 챗봇은 사용자가 기다리는 UI라 **모델 선택이 사용성에 결정적**입니다.
+
+| 모델 | 응답 시간 | 답변 길이 | 비고 |
+|---|---|---|---|
+| `gemini-3.5-flash-lite` | **1.4초** | 237자 | **기본값.** 추론 토큰 0 |
+| `gemini-3.1-flash-lite` | 1.3초 | 223자 | 비슷함 |
+| `gemini-3.5-flash` | 16.8초 | 261자 | 느림 |
+| `gemini-3.6-flash` | 35.0초 | 279자 | **너무 느림.** 타임아웃 발생 |
+
+`gemini-3.6-flash`는 `thinkingLevel: "minimal"`로 추론을 완전히 꺼도 28초가 걸립니다.
+답변 품질 차이는 이 용도(FAQ 안내)에서 체감되지 않으므로 **flash-lite 계열을 권장**합니다.
+
+> 참고: `thinkingConfig.thinkingBudget`은 Gemini 3.x에서 거부되고(400),
+> `thinkingConfig.thinkingLevel`은 `minimal`·`low`·`high`만 유효합니다.
 | 답변 말투·규칙 | `api/chat.js` → `SYSTEM_PROMPT` | — | 분량·존댓말·마크다운 금지 등을 지정 |
 
 ---
@@ -490,6 +534,7 @@ ALLOWED_ORIGINS=https://aish.github.io
 | **404** | `... is no longer available to new users` | 지정한 모델이 신규 사용자에게 중단됨 | 메시지가 안내하는 모델명으로 `GEMINI_MODEL` 환경변수 변경 |
 | **403** | `Your project has been denied access` | 키가 속한 Google 프로젝트가 차단됨 | 아래 참고 |
 | **429** | `Resource has been exhausted` | 무료 등급 할당량 초과 | 잠시 후 재시도 |
+| (응답 없음) | 화면에 `응답이 너무 오래 걸려 중단했습니다` | **느린 모델 사용 중** | `GEMINI_MODEL`을 `gemini-3.5-flash-lite`로 변경 ([8장 속도 표](#8-챗봇-업데이트-방법)) |
 | **400** | `API key not valid` | 키 오타·잘못 복사 | 키 재확인 |
 
 **403 “Your project has been denied access” 대처법**
@@ -541,6 +586,8 @@ pull로 들어온 JSON은 Actions 커밋이지, 내 커밋에 억지로 넣을 �
 | `chatbot.js` | 메인 사이트용 챗봇 (FAQ 검색 + AI 폴백) | 동작 조정 시 |
 | `widget.js` | **외부 사이트 임베드용 위젯** (Shadow DOM 자기완결형) | 동작 조정 시 |
 | `api/chat.js` | **Gemini 프록시 (서버 실행 · 키 보관 · CORS 판정)** | 모델·프롬프트 변경 시 |
+| `dev-server.js` | 로컬 개발 서버 (`npm run dev`) | 거의 없음 |
+| `package.json` | npm 스크립트. **의존성 없음** | 거의 없음 |
 | `vercel.json` | Vercel 배포 설정 | 거의 없음 |
 | `.env.example` | 환경변수 템플릿 | 거의 없음 |
 | `.gitignore` | 키 파일 커밋 차단 | 거의 없음 |

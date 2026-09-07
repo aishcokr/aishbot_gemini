@@ -53,7 +53,7 @@
   const SCORE_WEAK  = 1;
   const MAX_RESULTS = 3;
 
-  const AI_TIMEOUT_MS = 25000;
+  const AI_TIMEOUT_MS = 40000;
   const AI_MAX_CALLS  = 30;
   const AI_CONTEXT_N  = 3;
   const AI_HISTORY_N  = 6;

@@ -32,7 +32,7 @@
      로컬에서 테스트하려면 `npx vercel dev` 로 띄우세요.
      (python -m http.server 로는 /api/chat 이 404 입니다)             */
   const AI_ENDPOINT   = "/api/chat";
-  const AI_TIMEOUT_MS = 25000;   // 응답 대기 상한
+  const AI_TIMEOUT_MS = 40000;   // 응답 대기 상한 (느린 모델로 바꿔도 견디도록 여유)
   const AI_MAX_CALLS  = 30;      // 세션당 호출 상한 (할당량 보호)
   const AI_CONTEXT_N  = 3;       // AI에 함께 넘길 FAQ 발췌 개수
   const AI_HISTORY_N  = 6;       // 유지할 대화 기록 (user+model 합계)
