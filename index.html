@@ -127,14 +127,27 @@
        해당 항목이 없으면 /api/chat(Gemini)으로 답변을 생성합니다.
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
   <button type="button" class="chatbot-fab" id="chatbot-toggle" aria-label="AI 도우미 열기" title="AI 도우미 열기">
-    💬
-    <span class="fab-label">AI 도우미</span>
+    <span class="fab-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="currentColor" focusable="false">
+        <path d="M12 1.8l1.6 4.7a4.2 4.2 0 0 0 2.6 2.6l4.7 1.6-4.7 1.6a4.2 4.2 0 0 0-2.6 2.6L12 19.6l-1.6-4.7a4.2 4.2 0 0 0-2.6-2.6L3.1 10.7l4.7-1.6a4.2 4.2 0 0 0 2.6-2.6L12 1.8z"/>
+        <path d="M18.7 15.6l.66 1.94a1.7 1.7 0 0 0 1.06 1.06l1.94.66-1.94.66a1.7 1.7 0 0 0-1.06 1.06l-.66 1.94-.66-1.94a1.7 1.7 0 0 0-1.06-1.06l-1.94-.66 1.94-.66a1.7 1.7 0 0 0 1.06-1.06l.66-1.94z" opacity=".65"/>
+      </svg>
+    </span>
+    <span class="fab-text">
+      <strong>AI 도우미</strong>
+      <em>무엇이든 물어보세요</em>
+    </span>
+    <span class="fab-status" aria-hidden="true"></span>
   </button>
 
   <aside class="chatbot-panel" id="chatbot-panel" role="complementary" aria-label="AI 도우미">
     <div class="chatbot-header">
       <div class="chatbot-header-info">
-        <span class="chatbot-avatar" aria-hidden="true">🤖</span>
+        <span class="chatbot-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" focusable="false">
+            <path d="M12 1.8l1.6 4.7a4.2 4.2 0 0 0 2.6 2.6l4.7 1.6-4.7 1.6a4.2 4.2 0 0 0-2.6 2.6L12 19.6l-1.6-4.7a4.2 4.2 0 0 0-2.6-2.6L3.1 10.7l4.7-1.6a4.2 4.2 0 0 0 2.6-2.6L12 1.8z"/>
+          </svg>
+        </span>
         <div>
           <strong>AI 도우미</strong>
           <small>FAQ + Gemini AI</small>
