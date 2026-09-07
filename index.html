@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!--
+    index.html — 메인 페이지 뼈대
+    이 파일은 구조(Structure)만 담당합니다.
+    디자인 → style.css / 기능 → script.js 로 역할 분리
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="매일 자동 수집되는 뉴스·경제·날씨·지원사업 정보 모음" />
+  <title>Daily Insights</title>
+
+  <!-- 구글 폰트 (한글 지원) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       헤더 — 로고 + 네비게이션
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">Daily<span>Insights</span></a>
+      <nav>
+        <a href="#sec-weather">날씨</a>
+        <a href="#sec-news">뉴스</a>
+        <a href="#sec-finance">경제</a>
+        <a href="#sec-biz">지원사업</a>
+        <a href="https://github.com/aishcokr/aishbot" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       히어로 — 랜덤 명언
+       script.js의 renderQuote()가 아래 id 요소들을 채워 줍니다.
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="hero">
+    <div class="quote-wrap">
+      <span class="quote-label">✦ 오늘의 영어 명언</span>
+      <blockquote>
+        <p  id="quote-en"     class="quote-en">명언을 불러오는 중...</p>
+        <p  id="quote-ko"     class="quote-ko"></p>
+        <footer id="quote-author" class="quote-author"></footer>
+      </blockquote>
+      <button id="quote-btn" class="quote-btn">↻ 다른 명언 보기</button>
+    </div>
+  </section>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       메인 콘텐츠 영역
+       각 섹션의 *-body 요소는 script.js가 동적으로 채워 줍니다.
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <main>
+
+    <!-- ① 날씨 + 코디 ─────────────────────────────── -->
+    <section id="sec-weather" class="section">
+      <div class="section-head">
+        <h2 id="weather-title" class="section-title">🌤️ 오늘의 날씨와 추천 코디</h2>
+        <span id="weather-meta" class="section-meta"></span>
+      </div>
+      <div id="weather-body">
+        <div class="loading-msg">날씨 정보를 불러오는 중...</div>
+      </div>
+    </section>
+
+    <!-- ② 주요 뉴스 ────────────────────────────────── -->
+    <section id="sec-news" class="section">
+      <div class="section-head">
+        <h2 id="news-title" class="section-title">📰 오늘의 주요 뉴스</h2>
+        <span id="news-meta" class="section-meta"></span>
+      </div>
+      <div id="news-body">
+        <div class="loading-msg">뉴스를 불러오는 중...</div>
+      </div>
+    </section>
+
+    <!-- ③ 경제/시장 체크 ────────────────────────────── -->
+    <section id="sec-finance" class="section">
+      <div class="section-head">
+        <h2 id="finance-title" class="section-title">💹 경제/시장 체크</h2>
+        <span id="finance-meta" class="section-meta"></span>
+      </div>
+      <div id="finance-body">
+        <div class="loading-msg">시장 데이터를 불러오는 중...</div>
+      </div>
+    </section>
+
+    <!-- ④ 서울·경기 지원사업 ─────────────────────────── -->
+    <section id="sec-biz" class="section">
+      <div class="section-head">
+        <h2 id="biz-title" class="section-title">🏢 서울·경기 지원사업 정보</h2>
+        <span id="biz-meta" class="section-meta"></span>
+      </div>
+      <div id="biz-body">
+        <div class="loading-msg">지원사업 정보를 불러오는 중...</div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       푸터
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <footer>
+    <p>
+      © 2026 Daily Insights &nbsp;·&nbsp;
+      <a href="https://github.com/jk0601/claudeclonetest" target="_blank" rel="noopener">GitHub 저장소</a>
+      &nbsp;·&nbsp; Vercel 배포 + GitHub Actions 자동 수집
+    </p>
+    <p>날씨: Open-Meteo API &nbsp;·&nbsp; 뉴스: 네이버뉴스 &nbsp;·&nbsp; 지수: yfinance &nbsp;·&nbsp; 지원사업: 기업마당 &nbsp;·&nbsp; 챗봇: Gemini</p>
+  </footer>
+
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       AI 챗봇 — 우하단 플로팅 버튼 + 사이드 패널
+       chatbot.js가 data/faq.json을 먼저 검색하고,
+       해당 항목이 없으면 /api/chat(Gemini)으로 답변을 생성합니다.
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <button type="button" class="chatbot-fab" id="chatbot-toggle" aria-label="AI 도우미 열기" title="AI 도우미 열기">
+    💬
+    <span class="fab-label">AI 도우미</span>
+  </button>
+
+  <aside class="chatbot-panel" id="chatbot-panel" role="complementary" aria-label="AI 도우미">
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <span class="chatbot-avatar" aria-hidden="true">🤖</span>
+        <div>
+          <strong>AI 도우미</strong>
+          <small>FAQ + Gemini AI</small>
+        </div>
+      </div>
+      <button type="button" class="chatbot-close" id="chatbot-close" aria-label="닫기">✕</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="msg msg--bot">
+        <p>안녕하세요! ChatGPT · Claude Code 사용법을 안내해 드리는 AI 도우미입니다.</p>
+        <p>등록된 FAQ에 없는 질문은 <strong>Gemini AI</strong>가 대신 답변해 드립니다.</p>
+      </div>
+      <div class="suggested-questions" id="suggested-questions">
+        <button type="button" class="suggest-btn" data-q="ChatGPT가 무엇인가요?">ChatGPT가 뭔가요?</button>
+        <button type="button" class="suggest-btn" data-q="좋은 프롬프트 공식이 뭔가요?">프롬프트 공식</button>
+        <button type="button" class="suggest-btn" data-q="클로드 코드란 무엇인가요?">클로드 코드란?</button>
+        <button type="button" class="suggest-btn" data-q="클로드 코드를 어떻게 설치하나요?">설치 방법</button>
+        <button type="button" class="suggest-btn" data-q="파일을 업로드하면 무엇을 할 수 있나요?">파일 업로드</button>
+        <button type="button" class="suggest-btn" data-q="개인정보를 입력해도 되나요?">개인정보 주의</button>
+      </div>
+    </div>
+
+    <div class="chatbot-input-area">
+      <input
+        type="text"
+        class="chatbot-input"
+        id="chatbot-input"
+        placeholder="질문을 입력하세요..."
+        autocomplete="off"
+        maxlength="200"
+      />
+      <button type="button" class="chatbot-send" id="chatbot-send" aria-label="전송">➤</button>
+    </div>
+
+    <p class="chatbot-disclaimer">
+      docs PDF 기반 교육용 안내입니다. FAQ에 없는 질문은 Gemini AI가 생성하며,
+      부정확할 수 있으니 최신 정보는 공식 문서를 확인하세요.
+    </p>
+  </aside>
+
+  <div class="chatbot-backdrop" id="chatbot-backdrop"></div>
+
+  <!-- JS 파일은 body 끝에 두어야 HTML이 먼저 렌더링됩니다 -->
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+
+</body>
+</html>

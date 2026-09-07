@@ -1,0 +1,50 @@
+# .github/workflows/supports-collect.yml
+# ============================================================
+# 역할: 6시간마다 지원사업 정보만 수집합니다. (선택 사항)
+#       지원사업은 수시 공고가 많아 더 자주 수집하는 것이 유용합니다.
+# ============================================================
+
+name: Supports Data Collection (6h)
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # 6시간마다 (0시, 6시, 12시, 18시 UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect-supports:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 3.11 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # 지원사업 수집에 필요한 라이브러리만 설치
+      - name: 라이브러리 설치
+        run: pip install requests beautifulsoup4 lxml
+
+      # collector.py에서 지원사업 함수만 단독 실행
+      - name: 지원사업 데이터 수집
+        run: |
+          python - <<'EOF'
+          import sys
+          sys.path.insert(0, "scripts")
+          from collector import collect_bizinfo_news
+          collect_bizinfo_news()
+          EOF
+
+      - name: 변경 사항 커밋 & 푸시
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/bizinfo.json
+          git diff --cached --quiet || git commit -m "chore: update bizinfo $(date +'%Y-%m-%d %H:%M')"
+          git push

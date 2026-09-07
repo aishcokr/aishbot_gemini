@@ -1,0 +1,578 @@
+/* ============================================================
+   style.css
+   섹션 순서: 명언 → 날씨 → 뉴스 → 경제 → 지원사업
+   ============================================================ */
+
+/* ── 1. 전역 변수 & 리셋 ─────────────────────────────────── */
+:root {
+  --bg:           #f6f5f1;
+  --surface:      #ffffff;
+  --border:       #e5e3dc;
+  --text-main:    #1a1a1c;
+  --text-body:    #484850;
+  --text-muted:   #92929e;
+  --accent:       #3d6b4f;          /* 포레스트 그린 */
+  --accent-light: rgba(61,107,79,.09);
+  --accent-dim:   rgba(61,107,79,.35);
+  --up:           #2e7d32;          /* 상승 초록 */
+  --down:         #c62828;          /* 하락 빨강 */
+  --radius:       12px;
+  --shadow:       0 2px 14px rgba(0,0,0,.06);
+  --max:          1080px;
+  --font:         'Noto Sans KR', sans-serif;
+  --serif:        'Noto Serif KR', serif;
+  --chatbot-width: 380px;
+  --accent-dk:    #2f543d;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  { font-family: var(--font); background: var(--bg); color: var(--text-body); line-height: 1.7; }
+img   { display: block; max-width: 100%; }
+a     { color: inherit; text-decoration: none; }
+
+/* ── 2. 헤더 ─────────────────────────────────────────────── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(246,245,241,.93);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: var(--max); margin: 0 auto;
+  height: 58px; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-family: var(--serif); font-size: 1.05rem; color: var(--text-main); }
+.logo span { color: var(--accent); }
+nav a {
+  font-size: .83rem; color: var(--text-muted);
+  margin-left: 22px; transition: color .2s;
+}
+nav a:hover { color: var(--accent); }
+
+/* ── 3. 히어로 (명언) ───────────────────────────────────── */
+.hero {
+  background-image:
+    linear-gradient(rgba(246,245,241,.88) 0%, rgba(246,245,241,.94) 100%),
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?w=1600&q=50&auto=format');
+  background-size: cover; background-position: center;
+  padding: 72px 24px 60px; text-align: center;
+}
+.quote-wrap { max-width: 740px; margin: 0 auto; }
+.quote-label {
+  display: inline-block;
+  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-light);
+  padding: 4px 14px; border-radius: 100px; margin-bottom: 28px;
+}
+.quote-en {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 3.2vw, 1.85rem);
+  font-style: italic; line-height: 1.55;
+  color: #253b2e; margin-bottom: 16px;
+  position: relative; padding: 0 16px;
+}
+.quote-en::before {
+  content: '\201C';
+  position: absolute; left: -4px; top: -14px;
+  font-size: 4.5rem; color: var(--accent); opacity: .18;
+  font-style: normal; line-height: 1;
+}
+.quote-ko  { font-size: .97rem; color: var(--text-body); margin-bottom: 6px; }
+.quote-author { font-size: .82rem; color: var(--text-muted); font-style: italic; }
+.quote-btn {
+  margin-top: 26px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 22px; border-radius: 100px;
+  background: var(--accent); color: #fff; border: none;
+  font-family: var(--font); font-size: .83rem; cursor: pointer;
+  transition: opacity .2s, transform .2s;
+}
+.quote-btn:hover { opacity: .82; transform: translateY(-1px); }
+
+/* ── 4. 메인 레이아웃 ────────────────────────────────────── */
+main { max-width: var(--max); margin: 0 auto; padding: 44px 24px 80px; }
+
+/* ── 5. 섹션 공통 ────────────────────────────────────────── */
+.section { margin-bottom: 52px; }
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.section-title { font-size: 1.05rem; font-weight: 700; color: var(--text-main); }
+.section-meta  { font-size: .75rem; color: var(--accent); font-weight: 600; }
+
+/* 수집 메타 정보 박스 */
+.collect-info {
+  font-size: .8rem;
+  color: var(--text-body);
+  background: rgba(61, 107, 79, .06);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* 날짜 강조 표시 */
+.section-date {
+  font-size: .82rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* 데이터 준비 중 메시지 */
+.loading-msg {
+  text-align: center; padding: 40px;
+  color: var(--text-muted); font-size: .88rem;
+}
+
+/* ── 6. 날씨 섹션 ────────────────────────────────────────── */
+.weather-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex; flex-direction: row;
+}
+.weather-img {
+  width: 260px; flex-shrink: 0;
+  object-fit: cover; height: 200px;
+}
+.weather-body {
+  padding: 28px 28px;
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+}
+.weather-date-label {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.weather-temp {
+  font-size: 2.6rem; font-weight: 700;
+  color: var(--text-main); line-height: 1;
+}
+.weather-temp span { font-size: 1rem; font-weight: 400; color: var(--text-muted); margin-left: 4px; }
+.weather-desc { font-size: 1rem; color: var(--text-body); }
+.weather-outfit { font-size: .9rem; color: var(--text-body); }
+.weather-outfit strong { color: var(--accent); }
+.outfit-btn {
+  align-self: flex-start; margin-top: 8px;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 8px 18px; border-radius: 6px;
+  border: 1px solid var(--accent); color: var(--accent);
+  font-size: .82rem; font-weight: 600; transition: background .2s, color .2s;
+}
+.outfit-btn:hover { background: var(--accent); color: #fff; }
+
+/* ── 7. 뉴스 목록 ────────────────────────────────────────── */
+.news-list { display: flex; flex-direction: column; gap: 2px; }
+.news-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 16px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px;
+  transition: background .15s;
+}
+.news-item:hover { background: var(--accent-light); }
+.news-num {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  background: var(--accent-light); color: var(--accent);
+  border-radius: 50%; font-size: .72rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.news-title {
+  font-size: .88rem; color: var(--text-main);
+  flex: 1; line-height: 1.4;
+}
+.news-arrow { color: var(--text-muted); font-size: .8rem; flex-shrink: 0; }
+
+/* ── 8. 경제/시장 카드 ───────────────────────────────────── */
+.finance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.finance-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px;
+  box-shadow: var(--shadow);
+}
+.finance-name { font-size: .78rem; color: var(--text-muted); margin-bottom: 8px; }
+.finance-price {
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--text-main); line-height: 1;
+  margin-bottom: 8px; letter-spacing: -.02em;
+}
+.finance-change {
+  font-size: .85rem; font-weight: 600;
+  display: flex; align-items: center; gap: 4px;
+}
+.finance-change.up   { color: var(--up); }
+.finance-change.down { color: var(--down); }
+.finance-change.flat { color: var(--text-muted); }
+
+/* ── 9. 지원사업 카드 그리드 ─────────────────────────────── */
+.biz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.biz-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 20px;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform .2s, box-shadow .2s;
+}
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.09); }
+.biz-title { font-size: .92rem; font-weight: 600; color: var(--text-main); line-height: 1.45; }
+.biz-period {
+  font-size: .77rem; color: var(--text-muted);
+  display: flex; align-items: center; gap: 5px;
+}
+.biz-period::before { content: '📅'; font-size: .8rem; }
+.biz-link {
+  align-self: flex-start; margin-top: 2px;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 7px 15px; border-radius: 6px;
+  border: 1px solid var(--accent); color: var(--accent);
+  font-size: .8rem; font-weight: 600;
+  transition: background .2s, color .2s;
+}
+.biz-link:hover { background: var(--accent); color: #fff; }
+
+/* ── 10. 푸터 ────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 26px 24px; text-align: center;
+}
+footer p { font-size: .78rem; color: var(--text-muted); line-height: 1.9; }
+footer a { color: var(--accent); }
+footer a:hover { text-decoration: underline; }
+
+/* ── 11. FAQ 챗봇 ────────────────────────────────────────── */
+.chatbot-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  font-family: var(--font);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(61,107,79,.28);
+  transition: background .2s, transform .2s, box-shadow .2s, opacity .2s;
+}
+.chatbot-fab:hover {
+  background: var(--accent-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(61,107,79,.35);
+}
+.fab-label { font-size: .85rem; white-space: nowrap; }
+.chatbot-fab.hidden { opacity: 0; pointer-events: none; }
+
+.chatbot-panel {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: var(--chatbot-width);
+  max-width: 100vw;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  box-shadow: -4px 0 30px rgba(0,0,0,.12);
+  transform: translateX(110%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.chatbot-panel.open { transform: translateX(0); }
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--accent);
+  color: #fff;
+  flex-shrink: 0;
+}
+.chatbot-header-info { display: flex; align-items: center; gap: 10px; }
+.chatbot-avatar { font-size: 1.5rem; line-height: 1; }
+.chatbot-header strong {
+  display: block;
+  font-size: .95rem;
+  line-height: 1.25;
+}
+.chatbot-header small {
+  font-size: .72rem;
+  opacity: .8;
+}
+.chatbot-close {
+  width: 2rem; height: 2rem;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  color: #fff; font-size: 1rem; cursor: pointer;
+  transition: background .2s;
+}
+.chatbot-close:hover { background: rgba(255,255,255,.3); }
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+.chatbot-messages::-webkit-scrollbar { width: 4px; }
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.msg {
+  max-width: 88%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: .86rem;
+  line-height: 1.65;
+  animation: chatbotSlideUp .2s ease;
+}
+.msg p + p { margin-top: 8px; }
+.msg--bot {
+  align-self: flex-start;
+  background: #f0efe9;
+  color: var(--text-main);
+  border-bottom-left-radius: 4px;
+}
+.msg--user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.suggested-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-self: flex-start;
+}
+.suggest-btn {
+  padding: 6px 12px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: 1rem;
+  font-family: var(--font);
+  font-size: .75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  white-space: nowrap;
+}
+.suggest-btn:hover {
+  background: rgba(61,107,79,.16);
+  transform: translateY(-1px);
+}
+
+.related-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  margin-top: 6px;
+  background: #faf9f6;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: .78rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background .2s;
+}
+.related-btn:hover { background: #f0efe9; }
+.related-btn::before { content: "→ "; color: var(--accent); }
+
+.answer-card {
+  background: #faf9f6;
+  border-left: 3px solid var(--accent);
+  padding: 10px 12px;
+  border-radius: 0 8px 8px 0;
+  font-size: .85rem;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* ── AI(Gemini) 생성 답변 표시 ───────────────────────────── */
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+  padding: 2px 8px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: 1rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.ai-thinking {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: .8rem;
+}
+
+.ai-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+.ai-dots i {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  animation: ai-bounce 1.2s infinite ease-in-out;
+}
+.ai-dots i:nth-child(2) { animation-delay: .15s; }
+.ai-dots i:nth-child(3) { animation-delay: .30s; }
+
+@keyframes ai-bounce {
+  0%, 60%, 100% { transform: translateY(0);     opacity: .45; }
+  30%           { transform: translateY(-4px);  opacity: 1;   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-dots i { animation: none; opacity: .6; }
+}
+
+.ai-error {
+  margin-top: 4px;
+  font-size: .7rem;
+  color: var(--text-muted);
+}
+
+.chatbot-input-area {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+.chatbot-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  font-family: var(--font);
+  font-size: .86rem;
+  outline: none;
+  background: #faf9f6;
+  color: var(--text-main);
+  transition: border-color .2s, box-shadow .2s;
+}
+.chatbot-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+  background: #fff;
+}
+.chatbot-send {
+  width: 2.4rem; height: 2.4rem;
+  border: none; border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.chatbot-send:hover {
+  background: var(--accent-dk);
+  transform: scale(1.05);
+}
+
+/* AI 응답 대기 중 입력 잠금 상태 */
+.chatbot-input:disabled {
+  background: #f0efe9;
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+.chatbot-send:disabled {
+  background: var(--accent-dim);
+  cursor: not-allowed;
+}
+.chatbot-send:disabled:hover {
+  background: var(--accent-dim);
+  transform: none;
+}
+
+.chatbot-disclaimer {
+  font-size: .65rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0 14px 12px;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.chatbot-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.chatbot-backdrop.active {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes chatbotSlideUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 12. 반응형 ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hero { padding: 52px 20px 44px; }
+  .weather-card { flex-direction: column; }
+  .weather-img  { width: 100%; height: 180px; }
+  .finance-grid { grid-template-columns: repeat(2, 1fr); }
+  .biz-grid     { grid-template-columns: 1fr; }
+  nav a         { display: none; }
+
+  .chatbot-panel { width: 100vw; }
+  .chatbot-fab {
+    bottom: 20px;
+    right: 16px;
+    padding: 12px 14px;
+  }
+  .fab-label { display: none; }
+}
+@media (max-width: 380px) {
+  .finance-grid { grid-template-columns: 1fr; }
+}

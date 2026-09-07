@@ -1,0 +1,26 @@
+# ── 비밀 정보 ──────────────────────────────
+# API 키는 반드시 Vercel 환경변수로만 관리하세요. 절대 커밋 금지.
+.env
+.env.*
+!.env.example
+config.js
+
+# ── Vercel ────────────────────────────────
+.vercel
+
+# ── Node ──────────────────────────────────
+node_modules/
+npm-debug.log*
+
+# ── Python ────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ── OS / 에디터 / 도구 ─────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.claude/settings.local.json

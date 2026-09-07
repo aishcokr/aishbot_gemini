@@ -1,0 +1,125 @@
+{
+  "last_updated": "2026-06-13",
+  "sections": [
+    {
+      "id": "news",
+      "title": "📰 오늘의 뉴스",
+      "items": [
+        {
+          "title": "AI 기술, 의료 진단 정확도 획기적으로 향상",
+          "summary": "최신 AI 모델이 MRI 영상 분석에서 전문의와 동등한 수준의 진단 정확도를 보이며 의료 현장 도입이 가속화되고 있습니다.",
+          "date": "2026-06-13",
+          "category": "AI",
+          "url": "https://example.com/news/1",
+          "source": "Tech News"
+        },
+        {
+          "title": "글로벌 반도체 공급망 재편, 한국 기업에 기회",
+          "summary": "미국과 유럽의 반도체 자립 정책 강화로 삼성전자, SK하이닉스 등 국내 기업들의 투자 협력 요청이 늘고 있습니다.",
+          "date": "2026-06-13",
+          "category": "경제",
+          "url": "https://example.com/news/2",
+          "source": "경제일보"
+        },
+        {
+          "title": "오픈소스 AI 모델 생태계 빠르게 성장",
+          "summary": "Meta, Mistral 등이 주도하는 오픈소스 LLM 생태계가 빠르게 확장되며 기업들의 자체 AI 구축 비용이 크게 낮아지고 있습니다.",
+          "date": "2026-06-12",
+          "category": "AI",
+          "url": "https://example.com/news/3",
+          "source": "AI Weekly"
+        }
+      ]
+    },
+    {
+      "id": "economy",
+      "title": "💹 경제 & 금융",
+      "items": [
+        {
+          "title": "코스피 2,800선 돌파, 외국인 순매수 지속",
+          "summary": "외국인 투자자들의 국내 주식 순매수가 15거래일 연속 이어지며 코스피가 연고점을 갱신했습니다.",
+          "date": "2026-06-13",
+          "category": "주식",
+          "url": "https://example.com/economy/1",
+          "source": "한국경제"
+        },
+        {
+          "title": "원달러 환율 1,320원대 안정, 수출 기업 숨통",
+          "summary": "달러 약세와 국내 경상수지 개선으로 원달러 환율이 1,320원대에서 안정세를 보이고 있습니다.",
+          "date": "2026-06-13",
+          "category": "환율",
+          "url": "https://example.com/economy/2",
+          "source": "매일경제"
+        },
+        {
+          "title": "2026년 청년 창업 지원 사업 공고, 최대 1억 지원",
+          "summary": "중소벤처기업부가 만 39세 이하 청년 창업자를 대상으로 사업화 자금 최대 1억 원을 지원하는 공고를 발표했습니다.",
+          "date": "2026-06-12",
+          "category": "지원사업",
+          "url": "https://example.com/economy/3",
+          "source": "중소벤처기업부"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "🤖 AI 트렌드",
+      "items": [
+        {
+          "title": "Claude 4.6 모델, 코딩 벤치마크 1위 달성",
+          "summary": "Anthropic의 최신 Claude 모델이 HumanEval, SWE-Bench 등 주요 코딩 벤치마크에서 최고 성능을 기록했습니다.",
+          "date": "2026-06-13",
+          "category": "LLM",
+          "url": "https://example.com/ai/1",
+          "source": "Anthropic Blog"
+        },
+        {
+          "title": "멀티모달 AI, 영상 이해 능력 비약적 발전",
+          "summary": "최신 멀티모달 모델들이 긴 영상 콘텐츠를 이해하고 요약하는 능력이 크게 향상되어 미디어·교육 분야 활용이 기대됩니다.",
+          "date": "2026-06-12",
+          "category": "멀티모달",
+          "url": "https://example.com/ai/2",
+          "source": "AI Research"
+        },
+        {
+          "title": "국내 AI 스타트업 투자, 역대 최고치 경신",
+          "summary": "2026년 상반기 국내 AI 스타트업 누적 투자액이 전년 동기 대비 180% 증가하며 역대 최고치를 기록했습니다.",
+          "date": "2026-06-11",
+          "category": "스타트업",
+          "url": "https://example.com/ai/3",
+          "source": "스타트업 투데이"
+        }
+      ]
+    },
+    {
+      "id": "learning",
+      "title": "📚 학습 자료",
+      "items": [
+        {
+          "title": "파이썬으로 배우는 머신러닝 기초 (무료 강의)",
+          "summary": "구글이 공개한 머신러닝 기초 과정으로, 파이썬 기본기가 있다면 누구나 시작할 수 있는 실습 중심 커리큘럼입니다.",
+          "date": "2026-06-13",
+          "category": "머신러닝",
+          "url": "https://example.com/learning/1",
+          "source": "Google Developers"
+        },
+        {
+          "title": "GitHub Actions 자동화 완벽 가이드",
+          "summary": "초보자도 따라할 수 있는 GitHub Actions 튜토리얼. CI/CD 파이프라인 구성부터 스케줄 자동화까지 단계별로 설명합니다.",
+          "date": "2026-06-12",
+          "category": "DevOps",
+          "url": "https://example.com/learning/2",
+          "source": "GitHub Docs"
+        },
+        {
+          "title": "프롬프트 엔지니어링 실전 가이드 2026",
+          "summary": "ChatGPT, Claude, Gemini 등 최신 LLM을 더 잘 활용하기 위한 프롬프트 설계 기법을 정리한 실용 가이드입니다.",
+          "date": "2026-06-11",
+          "category": "프롬프트",
+          "url": "https://example.com/learning/3",
+          "source": "Prompt Guide"
+        }
+      ]
+    }
+  ]
+}
