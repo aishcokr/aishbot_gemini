@@ -28,7 +28,7 @@
 
 | 순서 | 할 일 | 어디서 |
 |------|-------|--------|
-| ① | 붙일 사이트의 **Origin** 확인 (`https://jk0601.github.io`) | 주소창 |
+| ① | 붙일 사이트의 **Origin** 확인 (`https://aish.github.io`) | 주소창 |
 | ② | `ALLOWED_ORIGINS` 환경변수에 등록 → **Redeploy** | Vercel 대시보드 |
 | ③ | `<script>` 한 줄 추가 | 붙일 사이트의 HTML |
 
@@ -80,7 +80,7 @@
 
 ```
 https://aishbot.vercel.app          ← 이런 형태
-https://aishbot-jk0601.vercel.app   ← 또는 이런 형태
+https://aishbot-aish.vercel.app   ← 또는 이런 형태
 ```
 
 이 주소가 위젯 스크립트의 출처가 됩니다. 아래에서 `<프로젝트명>.vercel.app` 자리에 이 값을 넣으세요.
@@ -112,8 +112,8 @@ Origin = 프로토콜 + :// + 도메인 (+ 포트)
 
 | 사이트 주소 | 등록할 Origin |
 |---|---|
-| `https://jk0601.github.io/aish/` | `https://jk0601.github.io` |
-| `https://jk0601.github.io/aish/index.html` | `https://jk0601.github.io` |
+| `https://aish.github.io/aish/` | `https://aish.github.io` |
+| `https://aish.github.io/aish/index.html` | `https://aish.github.io` |
 | `https://aish.co.kr/` | `https://aish.co.kr` |
 | `https://www.aish.co.kr/` | `https://www.aish.co.kr` |
 | `http://localhost:8000/` | `http://localhost:8000` |
@@ -149,7 +149,7 @@ location.origin
    | 항목 | 값 |
    |------|-----|
    | **Key** | `ALLOWED_ORIGINS` |
-   | **Value** | `https://jk0601.github.io` |
+   | **Value** | `https://aish.github.io` |
    | **Environments** | Production · Preview · Development **전부 체크** |
 
 4. **Save**
@@ -163,7 +163,7 @@ location.origin
 쉼표로 구분해서 한 줄에 씁니다. **공백은 있어도 되고 없어도 됩니다.**
 
 ```
-ALLOWED_ORIGINS=https://jk0601.github.io,https://aish.co.kr,https://www.aish.co.kr
+ALLOWED_ORIGINS=https://aish.github.io,https://aish.co.kr,https://www.aish.co.kr
 ```
 
 ### 등록하지 않아도 되는 것
@@ -236,24 +236,50 @@ _includes/footer.html   ← 또는 여기
 
 ## 8. 옵션 — 사이트마다 다르게 꾸미기
 
-`<script>` 태그에 `data-*` 속성을 붙이면 사이트별로 다르게 동작합니다. **전부 생략 가능**합니다.
+### 기본 동작 — 아무것도 안 해도 됩니다
+
+위젯의 문구(제목·인사말·추천질문 등)는 서버의 **`data/bot-config.json`** 에서 자동으로 읽어옵니다.
+즉 그 파일 하나만 고치면 위젯을 붙인 **모든 사이트에 동시에 반영**됩니다.
+
+```
+문구 우선순위:  script 태그의 data-*  >  data/bot-config.json  >  위젯 내장 기본값
+```
+
+### 사이트별로 다르게 하고 싶을 때만 `data-*` 사용
+
+특정 사이트에서만 다른 제목·FAQ를 쓰고 싶을 때 붙입니다. **전부 생략 가능**합니다.
 
 | 속성 | 기본값 | 설명 |
 |---|---|---|
-| `data-title` | `AI 도우미` | 버튼과 패널에 표시되는 제목 |
-| `data-subtitle` | `FAQ + Gemini AI` | 패널 헤더의 작은 글씨 |
-| `data-greeting` | 기본 인사말 | 패널을 열었을 때 첫 메시지 |
+| `data-title` | bot-config의 `title` | 버튼·패널 제목 |
+| `data-subtitle` | bot-config의 `subtitle` | 패널 헤더 작은 글씨 |
+| `data-tagline` | bot-config의 `tagline` | 버튼 둘째 줄 문구 |
+| `data-greeting` | bot-config의 `greeting` | 패널을 열었을 때 첫 메시지 (한 줄만) |
+| `data-disclaimer` | bot-config의 `disclaimer` | 패널 하단 고지 문구 |
 | `data-faq` | `<프로젝트>/data/faq.json` | 사용할 FAQ 파일 주소 |
+| `data-config` | `<프로젝트>/data/bot-config.json` | 사용할 설정 파일 주소 |
 | `data-api` | `<프로젝트>/api/chat` | API 주소 (보통 바꿀 일 없음) |
+
+> **추천 질문(`suggestions`)은 `data-*`로 지정할 수 없습니다.** 항목이 여러 개라 속성 하나에 담기 어렵기 때문입니다.
+> 사이트별로 다르게 하려면 `data-config`로 **별도 설정 파일**을 가리키세요.
 
 ### 예시 — 회사 소개 사이트용
 
 ```html
-<script src="https://aishbot.vercel.app/widget.js"
+<!-- 이 사이트에서만 제목·인사말·FAQ를 다르게 -->
+<script src="https://<프로젝트명>.vercel.app/widget.js"
         data-title="회사 안내 도우미"
         data-subtitle="무엇이든 물어보세요"
         data-greeting="안녕하세요! 회사 서비스에 대해 안내해 드립니다."
-        data-faq="https://aishbot.vercel.app/data/company_faq.json"
+        data-faq="https://<프로젝트명>.vercel.app/data/faq-sales.json"
+        defer></script>
+```
+
+```html
+<!-- 추천 질문까지 통째로 다르게 — 설정 파일을 따로 가리킵니다 -->
+<script src="https://<프로젝트명>.vercel.app/widget.js"
+        data-config="https://<프로젝트명>.vercel.app/data/bot-config-sales.json"
+        data-faq="https://<프로젝트명>.vercel.app/data/faq-sales.json"
         defer></script>
 ```
 
@@ -280,7 +306,7 @@ FAQ 파일을 새로 만드시려면 Vercel 저장소의 `data/` 폴더에 JSON�
 
 ```
 # 사이트 3개를 쓰는 경우
-ALLOWED_ORIGINS=https://jk0601.github.io,https://aish.co.kr,https://blog.aish.co.kr
+ALLOWED_ORIGINS=https://aish.github.io,https://aish.co.kr,https://blog.aish.co.kr
 ```
 
 `widget.js`나 `api/chat.js` 코드는 **손댈 필요가 없습니다.**

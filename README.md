@@ -30,6 +30,7 @@
 |------|------|
 | **비용** | 무료 (Vercel Hobby + Gemini 무료 등급) |
 | **API 키** | Gemini 키 1개 — **Vercel 환경변수에만 저장**, 브라우저에 노출 안 됨 |
+| **재사용** | FAQ·문구·페르소나가 설정으로 분리 — 코드 수정 없이 타사 챗봇으로 전환 ([SETUP.md](SETUP.md)) |
 | **백엔드** | 서버리스 함수 1개(`api/chat.js`) + GitHub Actions 데이터 수집 |
 | **기술 스택** | HTML + CSS + Vanilla JS (빌드 도구 없음) |
 | **모바일** | 완전 반응형 (모바일·태블릿·데스크톱) |
@@ -121,8 +122,8 @@ GitHub Actions
 - AI가 생성한 답변에는 `✨ AI 생성 답변` 배지가 붙어 FAQ 답변과 구분됩니다.
 - 직전 대화 3턴을 기억해 이어지는 질문에도 대응합니다.
 - **남용 방지:** 세션당 AI 호출 30회 제한, 응답 대기 40초 제한 (`chatbot.js` 상단에서 조정 가능)
-- **FAQ 내용:** ChatGPT · Claude Code 사용 가이드 (`docs/` PDF 기반, 약 50개+ Q&A)
-- 데이터 파일: `data/faq.json` · 프론트 로직: `chatbot.js` · 서버 로직: `api/chat.js`
+- **FAQ 내용:** 사내 규정·근무 FAQ 53개 + ChatGPT·Claude Code 가이드 54개 (**주제별 파일 분리 — 필요 없는 파일은 삭제하면 됩니다**)
+- 데이터 파일: `data/faq*.json` · 설정: `data/bot-config.json` · 프론트: `chatbot.js`·`widget.js` · 서버: `api/chat.js`
 
 ---
 
@@ -144,6 +145,7 @@ aishbot/   (또는 저장소 이름)
 ├── .gitignore                 ← .env · 캐시 등 커밋 차단
 ├── README.md
 ├── WIDGET.md                  ← 위젯 설치 가이드 (외부 사이트용)
+├── SETUP.md                   ← 다른 회사에 인계할 때의 설치 가이드
 │
 ├── api/                       ← Vercel 서버리스 함수 (서버에서 실행)
 │   └── chat.js                ← Gemini 프록시. API 키는 여기서만 사용
@@ -157,8 +159,9 @@ aishbot/   (또는 저장소 이름)
 │   ├── news.json              ← 네이버 뉴스
 │   ├── finance.json           ← 시장 지수
 │   ├── bizinfo.json           ← 서울·경기 지원사업
-│   ├── faq.json               ← 챗봇 Q&A
-│   └── contents.json          ← (참고용/이전 샘플, 메인 화면은 위 JSON 사용)
+│   ├── faq.json               ← 사내 규정·근무 FAQ (53개)
+│   ├── faq-guide.json         ← ChatGPT·Claude Code 가이드 (54개, 삭제 가능)
+│   └── bot-config.json        ← 챗봇 화면 문구 (제목·인사말·추천질문)
 │
 ├── scripts/
 │   └── collector.py           ← 데이터 수집 스크립트 (한 파일)
@@ -367,8 +370,66 @@ Gemini 키는 GitHub이 아니라 **Vercel 환경변수**에 등록합니다 ([6
 
 ## 8. 챗봇 업데이트 방법
 
+> 📘 **이 프로젝트를 다른 회사 챗봇으로 바꾸려면: [SETUP.md](SETUP.md)**
+
 챗봇은 `data/faq.json`을 먼저 검색하고, 없으면 Gemini에게 넘깁니다.
 **FAQ를 잘 채워둘수록 답변이 정확해지고 API 호출도 줄어듭니다.**
+
+### 설정이 어디에 있는가
+
+챗봇의 내용·문구는 **JS 코드가 아니라 아래 세 곳**에 있습니다. 코드를 수정할 필요가 없습니다.
+
+| 무엇을 | 어디서 | 영향 범위 |
+|---|---|---|
+| **FAQ 내용** | `data/faq.json` | FAQ 검색 답변 (①단계) |
+| **화면 문구** | `data/bot-config.json` | 제목·인사말·추천질문·고지문구 |
+| **AI의 정체성** | 환경변수 `BOT_PERSONA` | FAQ에 없는 질문의 AI 답변 (②단계) |
+
+`BOT_PERSONA`는 AI가 "자신이 누구인지" 인식하는 문장입니다. 이걸 바꾸지 않으면
+FAQ만 교체해도 AI가 엉뚱한 자기소개를 합니다.
+
+```
+BOT_PERSONA=당신은 ○○건설의 고객 안내 도우미입니다. 시공·AS·견적 문의를 안내합니다.
+```
+
+### `data/bot-config.json`
+
+```json
+{
+  "faqFiles": ["data/faq.json", "data/faq-guide.json"],
+  "title": "AI 도우미",
+  "subtitle": "FAQ + Gemini AI",
+  "tagline": "무엇이든 물어보세요",
+  "greeting": ["첫 인사말 1번째 줄", "2번째 줄"],
+  "suggestions": [
+    { "label": "짧은 버튼 문구", "q": "챗봇에 실제로 전달될 질문" }
+  ],
+  "disclaimer": "하단 고지 문구"
+}
+```
+
+### FAQ 파일 분리
+
+`faqFiles`에 적힌 파일들을 **모두 합쳐서** 검색합니다. 현재 구성은 이렇습니다.
+
+| 파일 | 항목 | 내용 |
+|---|---|---|
+| `data/faq.json` | 53개 | 사내 규정·근무 FAQ (근로계약·연차·급여·복지) |
+| `data/faq-guide.json` | 54개 | ChatGPT · Claude Code 사용 가이드 |
+
+**특정 주제를 빼려면 그 파일을 삭제하기만 하면 됩니다.** 없는 파일은 조용히 건너뛰므로
+`faqFiles` 목록을 고칠 필요가 없습니다.
+
+```bash
+git rm data/faq-guide.json   # ChatGPT 가이드 제거
+```
+
+같은 질문이 여러 파일에 있으면 목록에서 **앞쪽 파일이 우선**합니다.
+
+- 메인 사이트(`chatbot.js`)와 위젯(`widget.js`) **양쪽 모두** 이 파일을 읽습니다.
+- 파일을 못 읽어도 `index.html`에 적힌 기본 문구로 동작합니다.
+- 위젯은 `<script>` 태그의 `data-title` 등이 이 파일보다 **우선**합니다.
+- `suggestions`는 최대 6개까지 표시됩니다.
 
 ### FAQ 항목 추가/수정
 
@@ -478,7 +539,7 @@ ALLOWED_ORIGINS=https://aish.github.io
 <!-- 사이트마다 다른 FAQ·제목을 쓰고 싶을 때 -->
 <script src="https://<프로젝트명>.vercel.app/widget.js"
         data-title="회사 도우미"
-        data-faq="https://<프로젝트명>.vercel.app/data/company_faq.json"
+        data-faq="https://<프로젝트명>.vercel.app/data/faq-sales.json"
         defer></script>
 ```
 
@@ -596,7 +657,10 @@ pull로 들어온 JSON은 Actions 커밋이지, 내 커밋에 억지로 넣을 �
 | `data/news.json` | 뉴스 (Actions) | 자동 |
 | `data/finance.json` | 시장 지수 (Actions) | 자동 |
 | `data/bizinfo.json` | 지원사업 (Actions) | 자동 |
-| `data/faq.json` | 챗봇 Q&A (AI 답변의 근거 자료로도 사용) | 가이드 변경 시 |
+| `data/faq.json` | 사내 규정·근무 FAQ (53개) | 내용 변경 시 |
+| `data/faq-guide.json` | ChatGPT·Claude Code 가이드 (54개, **삭제 가능**) | 거의 없음 |
+| `data/bot-config.json` | **챗봇 화면 문구** (제목·인사말·추천질문) | 문구 변경 시 |
+| `SETUP.md` | **다른 회사 인계용 설치 가이드** | 절차 변경 시 |
 | `docs/*.pdf` | FAQ 원본 자료 | 자료 교체 시 |
 | `scripts/collector.py` | 데이터 수집 | 셀렉터/소스 변경 시 |
 | `daily-collect.yml` | 매일 전체 수집 | 거의 없음 |

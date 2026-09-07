@@ -1,7 +1,7 @@
 /**
  * widget.js — 임베드형 AI 도우미 위젯 (외부 사이트용)
  * ============================================================
- * 다른 사이트(예: https://jk0601.github.io/aish/)에 아래 한 줄만 넣으면
+ * 다른 사이트(예: https://aish.github.io/aish/)에 아래 한 줄만 넣으면
  * 버튼·패널이 자동으로 생성됩니다. HTML·CSS를 손댈 필요가 없습니다.
  *
  *   <script src="https://<프로젝트>.vercel.app/widget.js" defer></script>
@@ -41,12 +41,28 @@
   }
 
   const ds = (SCRIPT && SCRIPT.dataset) || {};
+
+  /* 문구 우선순위: script 태그의 data-* > data/bot-config.json > 아래 기본값 */
   const CFG = {
-    api:      ds.api      || BASE + "/api/chat",
-    faq:      ds.faq      || BASE + "/data/faq.json",
-    title:    ds.title    || "AI 도우미",
-    subtitle: ds.subtitle || "FAQ + Gemini AI",
-    greeting: ds.greeting || "안녕하세요! ChatGPT · Claude Code 사용법을 안내해 드리는 AI 도우미입니다.",
+    api:        ds.api    || BASE + "/api/chat",
+    faq:        ds.faq    || BASE + "/data/faq.json",
+    configUrl:  ds.config || BASE + "/data/bot-config.json",
+    title:      ds.title    || "AI 도우미",
+    subtitle:   ds.subtitle || "FAQ + Gemini AI",
+    tagline:    ds.tagline  || "무엇이든 물어보세요",
+    greeting:   ds.greeting ? [ds.greeting] : ["안녕하세요! 궁금한 점을 물어보세요."],
+    disclaimer: ds.disclaimer ||
+      "AI가 생성한 답변은 부정확할 수 있으니 중요한 내용은 공식 안내를 확인하세요.",
+    suggestions: null,   // 설정 파일에서 채워집니다
+  };
+
+  /* data-* 로 직접 지정한 항목은 설정 파일이 덮어쓰지 않습니다 */
+  const PINNED = {
+    title:      ds.title      !== undefined,
+    subtitle:   ds.subtitle   !== undefined,
+    tagline:    ds.tagline    !== undefined,
+    greeting:   ds.greeting   !== undefined,
+    disclaimer: ds.disclaimer !== undefined,
   };
 
   const SCORE_GOOD  = 4;
@@ -58,11 +74,10 @@
   const AI_CONTEXT_N  = 3;
   const AI_HISTORY_N  = 6;
 
-  const SUGGESTIONS = [
-    "ChatGPT가 무엇인가요?",
-    "좋은 프롬프트 공식이 뭔가요?",
-    "클로드 코드란 무엇인가요?",
-    "파일을 업로드하면 무엇을 할 수 있나요?",
+  /* 설정 파일을 못 읽었을 때 쓰는 최소 기본값 */
+  const FALLBACK_SUGGESTIONS = [
+    { label: "이용 안내", q: "어떤 것을 도와주실 수 있나요?" },
+    { label: "문의 방법", q: "문의는 어떻게 하나요?" },
   ];
 
   let faqData     = [];
@@ -323,8 +338,8 @@
     <button type="button" class="fab" part="fab" aria-label="${escHtml(CFG.title)} 열기">
       <span class="fab-icon" aria-hidden="true">${SPARKLE}</span>
       <span class="fab-text">
-        <strong>${escHtml(CFG.title)}</strong>
-        <em>무엇이든 물어보세요</em>
+        <strong data-bot="title">${escHtml(CFG.title)}</strong>
+        <em data-bot="tagline">${escHtml(CFG.tagline)}</em>
       </span>
       <span class="fab-status" aria-hidden="true"></span>
     </button>
@@ -336,8 +351,8 @@
         <div class="head-info">
           <span class="avatar" aria-hidden="true">${SPARKLE}</span>
           <div>
-            <strong>${escHtml(CFG.title)}</strong>
-            <small>${escHtml(CFG.subtitle)}</small>
+            <strong data-bot="title">${escHtml(CFG.title)}</strong>
+            <small data-bot="subtitle">${escHtml(CFG.subtitle)}</small>
           </div>
         </div>
         <button type="button" class="close" aria-label="닫기">✕</button>
@@ -350,10 +365,7 @@
         <button type="button" class="send" aria-label="전송">➤</button>
       </div>
 
-      <p class="disclaimer">
-        교육용 안내입니다. FAQ에 없는 질문은 Gemini AI가 생성하며,
-        부정확할 수 있으니 최신 정보는 공식 문서를 확인하세요.
-      </p>
+      <p class="disclaimer" data-bot="disclaimer">${escHtml(CFG.disclaimer)}</p>
     </aside>
   `;
   while (wrap.firstChild) root.appendChild(wrap.firstChild);
@@ -367,14 +379,65 @@
   const elSend     = $(".send");
   const elClose    = $(".close");
 
+  let greetingEl = null;   // 설정 로드 후 교체하기 위해 참조를 보관합니다
+  let suggestBox = null;
+
+  function greetingHtml() {
+    return CFG.greeting
+      .map(function (line) { return "<p>" + escHtml(line) + "</p>"; })
+      .join("");
+  }
+
   function mount() {
     document.body.appendChild(host);
-    addMessage("bot", `
-      <p>${escHtml(CFG.greeting)}</p>
-      <p>등록된 FAQ에 없는 질문은 <strong>Gemini AI</strong>가 대신 답변해 드립니다.</p>
-    `);
-    appendSuggestions();
-    loadFaq();
+    greetingEl = addMessage("bot", greetingHtml());
+    suggestBox = appendSuggestions();
+    init();
+  }
+
+  async function init() {
+    const cfg = await loadBotConfig();          // 문구를 설정 파일 값으로 교체
+    await loadFaq(cfg && cfg.faqFiles);         // 설정에 적힌 FAQ 파일들을 합쳐 로드
+  }
+
+  /** data/bot-config.json 을 읽어 화면 문구를 교체합니다.
+   *  script 태그에 data-* 로 직접 지정한 항목은 건드리지 않습니다. */
+  async function loadBotConfig() {
+    let cfg;
+    try {
+      const res = await fetch(CFG.configUrl + "?t=" + Date.now(), { cache: "no-store" });
+      if (!res.ok) throw new Error("설정 로드 실패 (" + res.status + ")");
+      cfg = await res.json();
+      if (!cfg || typeof cfg !== "object") throw new Error("설정 형식 오류");
+    } catch (err) {
+      console.warn("[ai-widget]", err.message, "— 기본 문구를 사용합니다.");
+      return null;
+    }
+
+    ["title", "subtitle", "tagline", "disclaimer"].forEach(function (key) {
+      if (PINNED[key] || typeof cfg[key] !== "string" || !cfg[key]) return;
+      CFG[key] = cfg[key];
+      root.querySelectorAll('[data-bot="' + key + '"]').forEach(function (el) {
+        el.textContent = cfg[key];
+      });
+    });
+
+    if (!PINNED.title && cfg.title) {
+      elFab.setAttribute("aria-label", cfg.title + " 열기");
+      elPanel.setAttribute("aria-label", cfg.title);
+    }
+
+    if (!PINNED.greeting && Array.isArray(cfg.greeting) && cfg.greeting.length) {
+      CFG.greeting = cfg.greeting;
+      if (greetingEl) greetingEl.innerHTML = greetingHtml();
+    }
+
+    if (Array.isArray(cfg.suggestions) && cfg.suggestions.length) {
+      CFG.suggestions = cfg.suggestions;
+      if (suggestBox) buildSuggestionButtons(suggestBox);
+    }
+
+    return cfg;
   }
 
   /* ── 패널 열고 닫기 ───────────────────────────────────── */
@@ -409,19 +472,35 @@
     return div;
   }
 
-  function appendSuggestions() {
-    const box = document.createElement("div");
-    box.className = "suggests";
-    SUGGESTIONS.forEach(function (q) {
+  /** 추천 질문을 {label, q}로 정규화 (문자열만 준 경우도 허용) */
+  function normalizeSuggestion(s) {
+    if (typeof s === "string") return { label: s, q: s };
+    return { label: s.label || s.q, q: s.q || s.label };
+  }
+
+  function buildSuggestionButtons(box) {
+    const list = (CFG.suggestions && CFG.suggestions.length)
+      ? CFG.suggestions
+      : FALLBACK_SUGGESTIONS;
+
+    box.innerHTML = "";
+    list.slice(0, 6).map(normalizeSuggestion).forEach(function (s) {
       const b = document.createElement("button");
       b.type = "button";
       b.className = "suggest";
-      b.textContent = q;
-      b.addEventListener("click", function () { handleQuery(q); });
+      b.textContent = s.label;
+      b.addEventListener("click", function () { handleQuery(s.q); });
       box.appendChild(b);
     });
+  }
+
+  function appendSuggestions() {
+    const box = document.createElement("div");
+    box.className = "suggests";
+    buildSuggestionButtons(box);
     elMsgs.appendChild(box);
     elMsgs.scrollTop = elMsgs.scrollHeight;
+    return box;
   }
 
   function appendRelated(results) {
@@ -571,18 +650,61 @@
   });
 
   /* ── FAQ 로드 ─────────────────────────────────────────── */
-  async function loadFaq() {
+  /** 상대 경로("data/faq.json")를 위젯 서버 기준 절대 주소로 바꿉니다 */
+  function toUrl(pathOrUrl) {
     try {
-      const res = await fetch(CFG.faq + (CFG.faq.includes("?") ? "&" : "?") + "t=" + Date.now(),
-                              { cache: "no-store" });
-      if (!res.ok) throw new Error("FAQ 로드 실패 (" + res.status + ")");
-      const json = await res.json();
-      if (!Array.isArray(json) || json.length === 0) throw new Error("FAQ 형식 오류");
-      faqData = json;
-    } catch (err) {
-      /* FAQ를 못 읽어도 AI 답변만으로 동작합니다 */
-      console.warn("[ai-widget]", err.message, "— AI 답변으로만 동작합니다.");
-      faqData = [];
+      return new URL(pathOrUrl, BASE + "/").href;
+    } catch (e) {
+      return pathOrUrl;
+    }
+  }
+
+  function fetchJson(url) {
+    return fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(),
+                 { cache: "no-store" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      });
+  }
+
+  /**
+   * 여러 FAQ 파일을 합쳐서 읽습니다.
+   * 없는 파일(404)은 조용히 건너뛰므로, 특정 주제를 빼려면 파일만 삭제하면 됩니다.
+   * data-faq 로 직접 지정한 경우에는 그 파일 하나만 씁니다.
+   */
+  async function loadFaq(files) {
+    const urls = (ds.faq !== undefined || !Array.isArray(files) || !files.length)
+      ? [CFG.faq]
+      : files.map(toUrl);
+
+    const results = await Promise.all(urls.map(function (url) {
+      return fetchJson(url)
+        .then(function (json) {
+          if (!Array.isArray(json)) throw new Error("배열이 아님");
+          return { url: url, items: json };
+        })
+        .catch(function (err) {
+          console.warn("[ai-widget] FAQ 건너뜀:", url, "-", err.message);
+          return null;
+        });
+    }));
+
+    const seen = new Set();
+    const merged = [];
+    results.filter(Boolean).forEach(function (r) {
+      r.items.forEach(function (item) {
+        if (!item || !item.q || !item.a) return;
+        const key = item.q.trim().toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        merged.push(item);
+      });
+    });
+
+    faqData = merged;
+    if (merged.length === 0) {
+      console.warn("[ai-widget] FAQ가 비어 있습니다 — AI 답변으로만 동작합니다.");
     }
   }
 

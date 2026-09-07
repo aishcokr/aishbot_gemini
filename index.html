@@ -114,7 +114,7 @@
   <footer>
     <p>
       © 2026 Daily Insights &nbsp;·&nbsp;
-      <a href="https://github.com/jk0601/claudeclonetest" target="_blank" rel="noopener">GitHub 저장소</a>
+      <a href="https://github.com/aishcokr/aishbot_gemini" target="_blank" rel="noopener">GitHub 저장소</a>
       &nbsp;·&nbsp; Vercel 배포 + GitHub Actions 자동 수집
     </p>
     <p>날씨: Open-Meteo API &nbsp;·&nbsp; 뉴스: 네이버뉴스 &nbsp;·&nbsp; 지수: yfinance &nbsp;·&nbsp; 지원사업: 기업마당 &nbsp;·&nbsp; 챗봇: Gemini</p>
@@ -134,8 +134,8 @@
       </svg>
     </span>
     <span class="fab-text">
-      <strong>AI 도우미</strong>
-      <em>무엇이든 물어보세요</em>
+      <strong data-bot="title">AI 도우미</strong>
+      <em data-bot="tagline">무엇이든 물어보세요</em>
     </span>
     <span class="fab-status" aria-hidden="true"></span>
   </button>
@@ -149,15 +149,17 @@
           </svg>
         </span>
         <div>
-          <strong>AI 도우미</strong>
-          <small>FAQ + Gemini AI</small>
+          <strong data-bot="title">AI 도우미</strong>
+          <small data-bot="subtitle">FAQ + Gemini AI</small>
         </div>
       </div>
       <button type="button" class="chatbot-close" id="chatbot-close" aria-label="닫기">✕</button>
     </div>
 
+    <!-- 인사말·추천 질문은 data/bot-config.json 의 값으로 교체됩니다.
+         아래 내용은 설정 파일을 못 읽었을 때 쓰이는 기본값입니다. -->
     <div class="chatbot-messages" id="chatbot-messages">
-      <div class="msg msg--bot">
+      <div class="msg msg--bot" id="chatbot-greeting">
         <p>안녕하세요! ChatGPT · Claude Code 사용법을 안내해 드리는 AI 도우미입니다.</p>
         <p>등록된 FAQ에 없는 질문은 <strong>Gemini AI</strong>가 대신 답변해 드립니다.</p>
       </div>
@@ -183,7 +185,7 @@
       <button type="button" class="chatbot-send" id="chatbot-send" aria-label="전송">➤</button>
     </div>
 
-    <p class="chatbot-disclaimer">
+    <p class="chatbot-disclaimer" data-bot="disclaimer">
       docs PDF 기반 교육용 안내입니다. FAQ에 없는 질문은 Gemini AI가 생성하며,
       부정확할 수 있으니 최신 정보는 공식 문서를 확인하세요.
     </p>

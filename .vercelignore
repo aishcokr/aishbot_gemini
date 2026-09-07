@@ -3,8 +3,10 @@
 
 .github/
 scripts/
+docs/
 requirements.txt
 dev-server.js
 README.md
 WIDGET.md
+SETUP.md
 .env.example

@@ -23,6 +23,10 @@
   let faqData = [];
   let isOpen  = false;
 
+  /* data/bot-config.json 에서 읽어오는 화면 문구.
+     설정 파일이 없거나 깨져도 index.html 의 기본 문구가 그대로 쓰입니다. */
+  let botConfig = null;
+
   const SCORE_GOOD  = 4;
   const SCORE_WEAK  = 1;
   const MAX_RESULTS = 3;
@@ -253,30 +257,79 @@
     messages.scrollTop = messages.scrollHeight;
   }
 
-  function appendSuggestedButtons() {
-    const suggestions = [
-      "ChatGPT가 무엇인가요?",
-      "프롬프트 공식을 알려주세요",
-      "클로드 코드 설치 방법",
-      "파일 업로드 활용법",
-    ];
+  /** 추천 질문 항목을 {label, q} 형태로 정규화 (문자열만 준 경우도 허용) */
+  function normalizeSuggestion(s) {
+    if (typeof s === "string") return { label: s, q: s };
+    return { label: s.label || s.q, q: s.q || s.label };
+  }
 
-    const wrapper = document.createElement("div");
-    wrapper.className = "suggested-questions";
+  /** 현재 설정(없으면 index.html의 기본 버튼)에서 추천 질문 목록을 얻습니다 */
+  function currentSuggestions() {
+    if (botConfig && Array.isArray(botConfig.suggestions) && botConfig.suggestions.length) {
+      return botConfig.suggestions.map(normalizeSuggestion);
+    }
+    return Array.prototype.map.call(
+      document.querySelectorAll("#suggested-questions .suggest-btn"),
+      function (b) {
+        return { label: b.textContent.trim(), q: b.getAttribute("data-q") };
+      }
+    );
+  }
 
-    suggestions.forEach(function (q) {
+  function buildSuggestionButtons(container) {
+    container.innerHTML = "";
+    currentSuggestions().slice(0, 6).forEach(function (s) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "suggest-btn";
-      btn.textContent = q;
-      btn.addEventListener("click", function () {
-        handleQuery(q);
-      });
-      wrapper.appendChild(btn);
+      btn.textContent = s.label;
+      btn.setAttribute("data-q", s.q);
+      btn.addEventListener("click", function () { handleQuery(s.q); });
+      container.appendChild(btn);
     });
+  }
 
+  function appendSuggestedButtons() {
+    const wrapper = document.createElement("div");
+    wrapper.className = "suggested-questions";
+    buildSuggestionButtons(wrapper);
     messages.appendChild(wrapper);
     messages.scrollTop = messages.scrollHeight;
+  }
+
+  /** data/bot-config.json 의 값을 화면에 반영합니다 */
+  function applyBotConfig(cfg) {
+    botConfig = cfg;
+
+    /* data-bot 속성이 붙은 요소에 텍스트 주입 (title · subtitle · tagline · disclaimer) */
+    ["title", "subtitle", "tagline", "disclaimer"].forEach(function (key) {
+      if (typeof cfg[key] !== "string" || !cfg[key]) return;
+      document.querySelectorAll('[data-bot="' + key + '"]').forEach(function (el) {
+        el.textContent = cfg[key];
+      });
+    });
+
+    if (cfg.title) {
+      const fab = document.getElementById("chatbot-toggle");
+      const panel = document.getElementById("chatbot-panel");
+      if (fab) {
+        fab.setAttribute("aria-label", cfg.title + " 열기");
+        fab.setAttribute("title", cfg.title + " 열기");
+      }
+      if (panel) panel.setAttribute("aria-label", cfg.title);
+    }
+
+    /* 인사말 — 문단 배열 */
+    const greetEl = document.getElementById("chatbot-greeting");
+    if (greetEl && Array.isArray(cfg.greeting) && cfg.greeting.length) {
+      greetEl.innerHTML = cfg.greeting
+        .map(function (line) { return "<p>" + escHtml(line) + "</p>"; })
+        .join("");
+    }
+
+    /* 추천 질문 */
+    const suggestBox = document.getElementById("suggested-questions");
+    if (suggestBox) buildSuggestionButtons(suggestBox);
   }
 
   async function handleQuery(query) {
@@ -313,23 +366,71 @@
     });
   });
 
-  async function init() {
-    try {
-      /* 브라우저가 예전 faq.json을 붙잡지 않도록 캐시 우회 */
-      const res = await fetch("data/faq.json?t=" + Date.now(), {
-        cache: "no-store",
+  /* 브라우저가 예전 파일을 붙잡지 않도록 캐시 우회 */
+  function loadJson(path) {
+    return fetch(path + "?t=" + Date.now(), { cache: "no-store" }).then(function (res) {
+      if (!res.ok) throw new Error(path + " 로드 실패 (" + res.status + ")");
+      return res.json();
+    });
+  }
+
+  const DEFAULT_FAQ_FILES = ["data/faq.json"];
+
+  /**
+   * 여러 FAQ 파일을 받아 하나로 합칩니다.
+   * 없는 파일(404)은 조용히 건너뛰므로, 특정 주제를 빼려면
+   * 그 파일을 삭제하기만 하면 됩니다.
+   */
+  async function loadFaq(files) {
+    const list = (Array.isArray(files) && files.length) ? files : DEFAULT_FAQ_FILES;
+
+    const results = await Promise.all(list.map(function (path) {
+      return loadJson(path)
+        .then(function (json) {
+          if (!Array.isArray(json)) throw new Error("배열이 아님");
+          return { path: path, items: json };
+        })
+        .catch(function (err) {
+          console.warn("[chatbot.js] FAQ 건너뜀:", path, "-", err.message);
+          return null;
+        });
+    }));
+
+    /* 같은 질문이 여러 파일에 있으면 앞쪽 파일이 우선합니다 */
+    const seen = new Set();
+    const merged = [];
+    results.filter(Boolean).forEach(function (r) {
+      let added = 0;
+      r.items.forEach(function (item) {
+        if (!item || !item.q || !item.a) return;
+        const key = item.q.trim().toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        merged.push(item);
+        added++;
       });
-      if (!res.ok) throw new Error("faq.json 로드 실패 (" + res.status + ")");
-      faqData = await res.json();
-      if (!Array.isArray(faqData) || faqData.length === 0) {
-        throw new Error("faq.json 형식 오류 또는 빈 배열");
-      }
-      console.info("[chatbot.js] FAQ 로드 완료:", faqData.length + "개 항목");
-    } catch (err) {
-      /* FAQ가 없어도 AI 폴백만으로 챗봇은 동작합니다 */
-      console.warn("[chatbot.js]", err.message, "— AI 답변으로만 동작합니다.");
-      faqData = [];
+      console.info("[chatbot.js] FAQ 로드:", r.path, added + "개");
+    });
+
+    faqData = merged;
+    if (merged.length === 0) {
+      console.warn("[chatbot.js] FAQ가 비어 있습니다 — AI 답변으로만 동작합니다.");
+    } else {
+      console.info("[chatbot.js] FAQ 합계:", merged.length + "개 항목");
     }
+  }
+
+  async function init() {
+    let cfg = null;
+    try {
+      cfg = await loadJson("data/bot-config.json");
+      if (!cfg || typeof cfg !== "object") throw new Error("bot-config.json 형식 오류");
+      applyBotConfig(cfg);
+    } catch (err) {
+      /* 설정이 없으면 index.html 에 적힌 기본 문구를 그대로 씁니다 */
+      console.warn("[chatbot.js]", err.message, "— 기본 문구를 사용합니다.");
+    }
+    await loadFaq(cfg && cfg.faqFiles);
   }
 
   init();

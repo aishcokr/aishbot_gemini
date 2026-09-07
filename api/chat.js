@@ -26,11 +26,20 @@ const GEMINI_URL =
   GEMINI_MODEL +
   ":generateContent";
 
-/* 답변 성격을 고정하는 시스템 지시문 */
-const SYSTEM_PROMPT = [
-  "당신은 'Daily Insights' 웹사이트의 한국어 AI 도우미입니다.",
-  "주 전문 분야는 ChatGPT와 Claude Code 사용법이며, 초보자를 대상으로 안내합니다.",
-  "",
+/* AI가 "자신이 누구인지" 인식하는 문장 — 회사마다 달라지는 유일한 부분입니다.
+   BOT_PERSONA 환경변수로 지정하며, 설정하지 않으면 아래 범용 문장을 씁니다.
+
+   ⚠️ 이걸 안 바꾸면 FAQ에 없는 질문이 왔을 때 AI가 엉뚱한 자기소개를 합니다.
+      예) 건설회사 FAQ를 넣고 이 값을 그대로 두면
+          "저는 ChatGPT 사용법을 안내하는 도우미입니다"라고 답할 수 있습니다.
+
+   예시) BOT_PERSONA=당신은 ○○건설의 고객 안내 도우미입니다. 시공·AS·견적 문의를 안내합니다. */
+const BOT_PERSONA =
+  process.env.BOT_PERSONA ||
+  "당신은 이 웹사이트 방문자를 돕는 한국어 AI 도우미입니다.";
+
+/* 회사와 무관한 공통 답변 규칙 — 보통 수정할 일이 없습니다 */
+const ANSWER_RULES = [
   "규칙:",
   "1) '참고 FAQ'가 주어지면 그 내용을 최우선 근거로 삼아 답하세요.",
   "2) 참고 FAQ가 없거나 부족하면 일반 지식으로 답하되, 확실하지 않은 내용은",
@@ -38,7 +47,11 @@ const SYSTEM_PROMPT = [
   "3) 3~6문장으로 간결하게. 단계 설명이 필요하면 번호 목록을 쓰세요.",
   "4) 마크다운 기호(**, ##, ``` 등)는 쓰지 말고 일반 문장으로 작성하세요.",
   "5) 항상 한국어 존댓말로 답하세요.",
-].join("\n");
+  "6) 담당 분야를 벗어난 질문에는 아는 범위에서 간단히 답하되,",
+  "   자세한 내용은 담당 부서에 문의하도록 안내하세요.",
+];
+
+const SYSTEM_PROMPT = [BOT_PERSONA, ""].concat(ANSWER_RULES).join("\n");
 
 /* 입력 상한 — 남용 및 토큰 낭비 방지 */
 const MAX_QUESTION_LEN = 300;
@@ -68,7 +81,7 @@ function readBody(req) {
  * 요청 Origin을 판정합니다.
  *  - 같은 도메인(이 사이트 자체)은 항상 허용
  *  - 외부 도메인은 ALLOWED_ORIGINS 환경변수 목록에 있을 때만 허용
- *    예) ALLOWED_ORIGINS=https://jk0601.github.io,https://aish.co.kr
+ *    예) ALLOWED_ORIGINS=https://aish.github.io,https://aish.co.kr
  *
  * @returns {string|null|false}
  *   문자열 = 허용된 Origin (CORS 헤더에 그대로 사용)
