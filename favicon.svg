@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Daily Insights">
+  <title>Daily Insights</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4c8264"/>
+      <stop offset="1" stop-color="#1e3a2b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 배경: 라운드 사각형. 16px로 축소돼도 형태가 유지되도록 반경을 크게 잡지 않았습니다 -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+
+  <!-- 스파클: 곡률을 완만하게 해 작은 크기에서도 뭉개지지 않도록 했습니다 -->
+  <path d="M16 4.4 Q17.6 13.4 27.6 16 Q17.6 18.6 16 27.6 Q14.4 18.6 4.4 16 Q14.4 13.4 16 4.4 Z"
+        fill="#b9ecd0"/>
+</svg>
