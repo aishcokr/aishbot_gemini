@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-09-07 23:16:45",
-  "temp": 29,
-  "description": "대체로 맑음",
-  "outfit": "최고 29°C의 무더운 날씨입니다. 민소매, 반팔, 린넨 소재를 추천합니다. 통풍이 잘 되는 가벼운 신발을 매치해 보세요.",
-  "image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=민소매+코디",
-  "date": "2026-09-07",
+  "last_updated": "2026-09-08 23:11:32",
+  "temp": 24,
+  "description": "부분적으로 흐림",
+  "outfit": "활동하기 좋은 선선한 날씨입니다. 얇은 긴팔 티셔츠나 맨투맨에 청바지 조합이 잘 어울립니다. 얇은 가디건을 하나 챙기면 완벽합니다.",
+  "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=맨투맨+코디",
+  "date": "2026-09-08",
   "region": "서울",
-  "temp_min": 17,
-  "temp_max": 29,
+  "temp_min": 18,
+  "temp_max": 24,
   "rain": "없음",
-  "dust": "좋음 (16㎍/㎥)"
+  "dust": "좋음 (17㎍/㎥)"
 }
