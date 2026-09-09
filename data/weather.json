@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-09-08 23:11:32",
-  "temp": 24,
-  "description": "부분적으로 흐림",
+  "last_updated": "2026-09-09 22:55:51",
+  "temp": 22,
+  "description": "흐림",
   "outfit": "활동하기 좋은 선선한 날씨입니다. 얇은 긴팔 티셔츠나 맨투맨에 청바지 조합이 잘 어울립니다. 얇은 가디건을 하나 챙기면 완벽합니다.",
   "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=60&auto=format",
   "link": "https://www.musinsa.com/search/snap?keyword=맨투맨+코디",
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "region": "서울",
-  "temp_min": 18,
-  "temp_max": 24,
+  "temp_min": 15,
+  "temp_max": 22,
   "rain": "없음",
-  "dust": "좋음 (17㎍/㎥)"
+  "dust": "좋음 (16㎍/㎥)"
 }
