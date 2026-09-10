@@ -1,6 +1,21 @@
 {
-  "last_updated": "2026-09-10 02:17:01",
+  "last_updated": "2026-09-10 10:18:16",
   "items": [
+    {
+      "title": "[경기] 용인시 2026년 4차 소공인특화지원센터 지원사업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126360",
+      "period": "2026-09-09 ~ 2026-09-18"
+    },
+    {
+      "title": "[경기] 안양시 2026년 2차 유망기업 인플루언서 연계 판로개척 지원사업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126359",
+      "period": "2026-09-14 ~ 2026-09-18"
+    },
+    {
+      "title": "[서울] 2026년 튀르키예 이스탄불 식품 박람회 참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126353",
+      "period": "2026-09-09 ~ 2026-09-22"
+    },
     {
       "title": "[경기] 성남시 2026년 국제 바이오헬스케어 컨벤션(SBIC) 참가기업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126328",
@@ -35,21 +50,6 @@
       "title": "[서울] 2026년 하반기 SBA 맞춤형 Kibo-Star밸리기업(해외진출연계) 지원계획 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126270",
       "period": "2026-09-10 ~ 2026-10-07"
-    },
-    {
-      "title": "[경기] 고양시 2026년 고양 스타트업 팝업스토어 참가기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126267",
-      "period": "2026-09-07 ~ 2026-09-20"
-    },
-    {
-      "title": "대한상공회의소 무료 경영상담 지원사업 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126265",
-      "period": "2026-09-01 ~ 2026-12-31"
-    },
-    {
-      "title": "[경기] 하남시 2026년 3차 중소기업육성기금(이자차액) 접수 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126255",
-      "period": "2026-09-08 ~ 2026-09-18"
     }
   ]
 }
