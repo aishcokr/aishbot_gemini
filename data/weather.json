@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-09-10 22:56:17",
-  "temp": 25,
+  "last_updated": "2026-09-11 22:57:39",
+  "temp": 26,
   "description": "부분적으로 흐림",
-  "outfit": "일교차가 11°C로 큽니다. 아침저녁엔 얇은 겉옷이나 가디건을 챙기고, 낮에는 가볍게 반팔 또는 얇은 긴팔 티셔츠를 입으세요.",
-  "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=가디건+코디",
-  "date": "2026-09-10",
+  "outfit": "활동하기 좋은 선선한 날씨입니다. 얇은 긴팔 티셔츠나 맨투맨에 청바지 조합이 잘 어울립니다. 얇은 가디건을 하나 챙기면 완벽합니다.",
+  "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=맨투맨+코디",
+  "date": "2026-09-11",
   "region": "서울",
-  "temp_min": 14,
-  "temp_max": 25,
+  "temp_min": 17,
+  "temp_max": 26,
   "rain": "없음",
-  "dust": "좋음 (8㎍/㎥)"
+  "dust": "보통 (32㎍/㎥)"
 }
