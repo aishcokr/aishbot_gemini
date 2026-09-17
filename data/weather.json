@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-09-16 23:32:35",
-  "temp": 26,
-  "description": "흐림",
-  "outfit": "일교차가 10°C로 큽니다. 아침저녁엔 얇은 겉옷이나 가디건을 챙기고, 낮에는 가볍게 반팔 또는 얇은 긴팔 티셔츠를 입으세요.",
-  "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=가디건+코디",
-  "date": "2026-09-16",
+  "last_updated": "2026-09-17 23:22:03",
+  "temp": 27,
+  "description": "대체로 맑음",
+  "outfit": "최고 27°C의 더운 날씨입니다. 반팔 티셔츠, 린넨 셔츠, 가벼운 면 팬츠를 추천합니다. 자외선 차단을 위해 선크림과 가벼운 모자를 챙기세요.",
+  "image": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=여름+반팔+코디",
+  "date": "2026-09-17",
   "region": "서울",
-  "temp_min": 16,
-  "temp_max": 26,
+  "temp_min": 17,
+  "temp_max": 27,
   "rain": "없음",
-  "dust": "좋음 (21㎍/㎥)"
+  "dust": "좋음 (17㎍/㎥)"
 }
