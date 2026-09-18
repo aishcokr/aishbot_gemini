@@ -1,15 +1,55 @@
 {
-  "last_updated": "2026-09-18 15:30:24",
+  "last_updated": "2026-09-18 20:11:12",
   "items": [
     {
-      "title": "서울형 강소기업 청년채용 지원사업",
-      "link": "https://www.bizinfo.go.kr",
-      "period": "2026-06-01 ~ 2026-06-30"
+      "title": "[경기] 수원시 2026년 SMATEC 공동관 참가기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126641",
+      "period": "2026-09-16 ~ 2026-10-02"
     },
     {
-      "title": "경기도 소상공인 디지털 전환 지원",
-      "link": "https://www.bizinfo.go.kr",
-      "period": "2026-05-15 ~ 2026-07-15"
+      "title": "[경기] 안산시 2026년 국가기술거래플랫폼 기술코칭 참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126620",
+      "period": "예산 소진시까지"
+    },
+    {
+      "title": "[경기] 용인시 2026년 4차 소공인특화지원센터 지원사업 연장 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126606",
+      "period": "2026-09-17 ~ 2026-09-28"
+    },
+    {
+      "title": "[서울] 2026년 뿌리기업 산업박람회 공동관 참여기업 모집공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126602",
+      "period": "2026-09-17 ~ 2026-09-28"
+    },
+    {
+      "title": "[경기] 2026년 2차 글로벌 로케이션 인센티브 추가 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126585",
+      "period": "2026-09-16 ~ 2026-09-30"
+    },
+    {
+      "title": "[경기] 양주시 2026년 4차 해외전시회 참가기업 지원사업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126581",
+      "period": "2026-09-15 ~ 2026-10-02"
+    },
+    {
+      "title": "[경기] 안양시 2026년 유망기업 유통상담회 참가기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126577",
+      "period": "2026-09-16 ~ 2026-10-01"
+    },
+    {
+      "title": "[경기] 고양시 2026년 4차 지식재산 긴급지원 사업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126554",
+      "period": "2026-09-15 ~ 2026-09-29"
+    },
+    {
+      "title": "[경기] 광주시 2026년 우리동네 맑은공기 패키지 지원사업 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126550",
+      "period": "2026-09-15 ~ 2026-09-30"
+    },
+    {
+      "title": "[경기] 부천시 2026년 중소기업 지식재산 지원 사업 참여 기업 추가모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126528",
+      "period": "예산 소진시까지"
     }
   ]
 }
