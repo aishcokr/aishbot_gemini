@@ -1,6 +1,11 @@
 {
-  "last_updated": "2026-09-21 02:31:32",
+  "last_updated": "2026-09-21 11:32:30",
   "items": [
+    {
+      "title": "[경기] 화성시 2027년 창업기업 CES 탐방단(The International Consumer Electronics Show) 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126663",
+      "period": "2026-09-18 ~ 2026-10-08"
+    },
     {
       "title": "[경기] 수원시 2026년 SMATEC 공동관 참가기업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126641",
@@ -45,11 +50,6 @@
       "title": "[경기] 광주시 2026년 우리동네 맑은공기 패키지 지원사업 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126550",
       "period": "2026-09-15 ~ 2026-09-30"
-    },
-    {
-      "title": "[경기] 부천시 2026년 중소기업 지식재산 지원 사업 참여 기업 추가모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126528",
-      "period": "예산 소진시까지"
     }
   ]
 }
