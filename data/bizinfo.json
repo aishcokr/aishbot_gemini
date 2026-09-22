@@ -1,15 +1,55 @@
 {
-  "last_updated": "2026-09-22 16:00:06",
+  "last_updated": "2026-09-22 20:41:16",
   "items": [
     {
-      "title": "서울형 강소기업 청년채용 지원사업",
-      "link": "https://www.bizinfo.go.kr",
-      "period": "2026-06-01 ~ 2026-06-30"
+      "title": "[서울] 동작구 2026년 모범음식점 신청 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126721",
+      "period": "2026-09-14 ~ 2026-09-28"
     },
     {
-      "title": "경기도 소상공인 디지털 전환 지원",
-      "link": "https://www.bizinfo.go.kr",
-      "period": "2026-05-15 ~ 2026-07-15"
+      "title": "[서울] 관악구 2026년 소상공인 원스톱 지원사업 소상공인 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126720",
+      "period": "2026-09-21 ~ 2026-10-08"
+    },
+    {
+      "title": "[서울] 구로구 2026년 하반기 일반음식점 시설개선 지원사업 기간 연장 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126718",
+      "period": "2026-08-24 ~ 2026-09-28"
+    },
+    {
+      "title": "[서울] 성북구 2026년 모범음식점 지정 희망업소 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126717",
+      "period": "2026-09-15 ~ 2026-09-30"
+    },
+    {
+      "title": "[서울] 중구 2026년 4분기 중소기업육성기금 융자지원계획 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126699",
+      "period": "2026-10-01 ~ 2026-10-13"
+    },
+    {
+      "title": "[경기] 2026년 경기도형 납품대금 연동제 우수기업 지원사업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126689",
+      "period": "2026-09-18 ~ 2026-10-23"
+    },
+    {
+      "title": "[경기] 화성시 2027년 창업기업 CES 탐방단(The International Consumer Electronics Show) 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126663",
+      "period": "2026-09-18 ~ 2026-10-08"
+    },
+    {
+      "title": "[경기] 수원시 2026년 SMATEC 공동관 참가기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126641",
+      "period": "2026-09-16 ~ 2026-10-02"
+    },
+    {
+      "title": "[경기] 안산시 2026년 국가기술거래플랫폼 기술코칭 참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126620",
+      "period": "예산 소진시까지"
+    },
+    {
+      "title": "[경기] 용인시 2026년 4차 소공인특화지원센터 지원사업 연장 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126606",
+      "period": "2026-09-17 ~ 2026-09-28"
     }
   ]
 }
