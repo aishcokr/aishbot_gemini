@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-26 23:22:38",
+  "last_updated": "2026-09-27 23:38:52",
   "items": [
     {
       "name": "KOSPI",
@@ -21,9 +21,9 @@
     },
     {
       "name": "금(Gold)",
-      "price": 4321.2,
-      "change": 23.2,
-      "percent": 0.54
+      "price": 4298.5,
+      "change": -22.7,
+      "percent": -0.53
     }
   ]
 }
