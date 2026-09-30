@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-09-29 00:49:12",
-  "temp": 25,
-  "description": "대체로 맑음",
-  "outfit": "일교차가 11°C로 큽니다. 아침저녁엔 얇은 겉옷이나 가디건을 챙기고, 낮에는 가볍게 반팔 또는 얇은 긴팔 티셔츠를 입으세요.",
-  "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=가디건+코디",
-  "date": "2026-09-29",
+  "last_updated": "2026-09-30 00:03:53",
+  "temp": 24,
+  "description": "약한 비",
+  "outfit": "비 오는 날엔 방수 재킷이나 레인코트를 챙기세요. 어두운 색 하의와 방수 신발로 마무리하면 실용적입니다. 접이식 우산도 잊지 마세요.",
+  "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=레인코트",
+  "date": "2026-09-30",
   "region": "서울",
-  "temp_min": 14,
-  "temp_max": 25,
-  "rain": "없음",
-  "dust": "좋음 (14㎍/㎥)"
+  "temp_min": 15,
+  "temp_max": 24,
+  "rain": "1.8mm 예상",
+  "dust": "좋음 (9㎍/㎥)"
 }
