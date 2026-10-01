@@ -1,55 +1,55 @@
 {
-  "last_updated": "2026-10-01 03:17:10",
+  "last_updated": "2026-10-01 12:07:19",
   "items": [
+    {
+      "title": "[경기] 안산시 2026년 소상공인 특례보증 추가 지원 계획 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126944",
+      "period": "예산 소진시까지"
+    },
+    {
+      "title": "[경기] 평택시 청년창업 특례보증 및 이차보전 지원 수정 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126943",
+      "period": "상시 접수"
+    },
+    {
+      "title": "2026년 대구국제기계산업대전 참가지원 모집 공고(생활지원을 위한 서비스로봇 부품 기술지원 기반구축 사업)",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126926",
+      "period": "2026-10-01 ~ 2026-10-13"
+    },
+    {
+      "title": "[경기] 2026년 한양대 ERICA-기술보증기금 기술이전 & 투자 IR & 상담회  참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126920",
+      "period": "2026-09-28 ~ 2026-10-16"
+    },
+    {
+      "title": "[경기] 안양시 2026년 유망기업 대중소 상생 판로개척 지원사업 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126918",
+      "period": "2026-10-14 ~ 2026-10-16"
+    },
+    {
+      "title": "[경기] 화성시 2026년 2차 스마트 물류비 지원사업 참가기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126915",
+      "period": "2026-10-01 ~ 2026-10-23"
+    },
+    {
+      "title": "[서울] 2026년 중동상황 대응 중소기업 수출위기극복 및 대체시장 개척 심화컨설팅 참여기업 추가 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126912",
+      "period": "2026-09-30 ~ 2026-10-14"
+    },
+    {
+      "title": "[경기] 성남시 2026년 Physical AI 기반 의료로봇 해외 바이어 발굴 현지지원 참가기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126909",
+      "period": "2026-09-30 ~ 2026-10-12"
+    },
+    {
+      "title": "[서울] 2026년 3차 B the B 뷰티 기반 융복합 콘텐츠 전시(다운타운) 팝업 참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126907",
+      "period": "2026-09-30 ~ 2026-10-12"
+    },
     {
       "title": "[경기] 2026년 중소기업 마케팅 지원사업 해외 오프라인 지원기업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126892",
       "period": "2026-09-29 ~ 2026-10-12"
-    },
-    {
-      "title": "[경기] 부천시 2026년 수출 유공 및 ESG 경영 유공 포상 후보자 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126880",
-      "period": "2026-09-29 ~ 2026-10-16"
-    },
-    {
-      "title": "2026년 10월 서리풀 소상공인 창업 클리닉 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126865",
-      "period": "2026-09-29 ~ 2026-10-21"
-    },
-    {
-      "title": "[경기] 부천시 2026년 스타트업포럼(IR데모데이) 참가기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126837",
-      "period": "2026-09-28 ~ 2026-10-15"
-    },
-    {
-      "title": "[서울] 2026년 하반기 찾아가는 가치소비 기획전 참여기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126834",
-      "period": "2026-09-28 ~ 2026-10-12"
-    },
-    {
-      "title": "[서울] 2026년 여유컨설팅(조직문화 심화편) 참여사업장 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126809",
-      "period": "예산 소진시까지"
-    },
-    {
-      "title": "[경기] 화성시 2026년 수출 패키지 지원 참가기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126805",
-      "period": "2026-09-22 ~ 2026-10-22"
-    },
-    {
-      "title": "[경기] 화성시 2026년 제4회 중소기업대상 시상계획 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126803",
-      "period": "2026-09-21 ~ 2026-10-16"
-    },
-    {
-      "title": "[서울] 2026년 서울창업센터 관악 × SK에코플랜트 오픈이노베이션 참여기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126786",
-      "period": "2026-09-18 ~ 2026-10-11"
-    },
-    {
-      "title": "[경기] 2026년 우수 환경서비스업 선정을 위한 신청 접수 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126783",
-      "period": "2026-09-28 ~ 2026-10-23"
     }
   ]
 }
