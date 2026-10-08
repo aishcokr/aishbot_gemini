@@ -1,6 +1,21 @@
 {
-  "last_updated": "2026-10-08 03:43:13",
+  "last_updated": "2026-10-08 12:31:30",
   "items": [
+    {
+      "title": "[경기] 2026년 지커넥션 비즈니스 데이 국내기업 추가모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127079",
+      "period": "2026-10-07 ~ 2026-10-28"
+    },
+    {
+      "title": "2026년 광명시 기업박람회(GM TECH EXPO 2026) 참가기업 추가모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127071",
+      "period": "2026-09-29 ~ 2026-10-13"
+    },
+    {
+      "title": "[서울] 2026년 예비-인증사회적기업 맞춤형 멘토링 지원사업 참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127064",
+      "period": "2026-10-07 ~ 2026-10-14"
+    },
     {
       "title": "[서울] 2026년 서울 라이프스타일 거점(일본) 진출사업 참여기업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127051",
@@ -35,21 +50,6 @@
       "title": "[경기] 부천시 2026년 10월 유해물질 시험분석 수수료 지원 사업 참여 기업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126971",
       "period": "2026-10-01 ~ 2026-10-31"
-    },
-    {
-      "title": "[서울] 2026년 외국인 취업채용박람회 참가기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126951",
-      "period": "2026-09-28 ~ 2026-10-16"
-    },
-    {
-      "title": "[경기] 안산시 2026년 소상공인 특례보증 추가 지원 계획 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126944",
-      "period": "예산 소진시까지"
-    },
-    {
-      "title": "[경기] 평택시 청년창업 특례보증 및 이차보전 지원 수정 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126943",
-      "period": "상시 접수"
     }
   ]
 }
