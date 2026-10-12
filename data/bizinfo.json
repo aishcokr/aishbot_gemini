@@ -1,6 +1,21 @@
 {
-  "last_updated": "2026-10-12 03:28:15",
+  "last_updated": "2026-10-12 13:58:35",
   "items": [
+    {
+      "title": "[경기] 하남시 2026년 사회적경제기업 기업 홍보이미지 제작 지원 참여기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127114",
+      "period": "2026-10-12 ~ 2026-10-23"
+    },
+    {
+      "title": "[경기] 서부권역 군포시 2026년 3차 중소기업 제품디자인개발 지원사업 참여기업 모집 공고(디자인개발)",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127097",
+      "period": "2026-10-08 ~ 2026-10-19"
+    },
+    {
+      "title": "[경기] 북부권역(구리시ㆍ동두천시) 2026년 3차 중소기업 제품디자인개발 지원사업 참여기업 모집 공고(디자인개발)",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127095",
+      "period": "2026-10-08 ~ 2026-10-19"
+    },
     {
       "title": "[경기] 2026년 지커넥션 비즈니스 데이 국내기업 추가모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127079",
@@ -35,21 +50,6 @@
       "title": "[서울] 성북구 2026년 길음청년희망스토어 청년창업팀(12호점) 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127032",
       "period": "2026-10-07 ~ 2026-10-21"
-    },
-    {
-      "title": "[경기] 용인시 2026년 3차 해외진출 종합지원사업(해외물류비) 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127018",
-      "period": "2026-10-13 ~ 2026-10-20"
-    },
-    {
-      "title": "[경기] 2026년 지커넥션 마켓 연계지원 도쿄 XR & 메타버스 페어 참가기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126993",
-      "period": "2026-10-02 ~ 2026-10-14"
-    },
-    {
-      "title": "[경기] 부천시 2026년 10월 유해물질 시험분석 수수료 지원 사업 참여 기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000126971",
-      "period": "2026-10-01 ~ 2026-10-31"
     }
   ]
 }
