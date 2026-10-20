@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-10-20 02:45:36",
+  "last_updated": "2026-10-20 10:42:07",
   "items": [
+    {
+      "title": "[경기] 안산시 2026년 일자리 창출 장려를 위한 고용우수기업 인증제 시행 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127350",
+      "period": "2026-10-19 ~ 2026-11-13"
+    },
+    {
+      "title": "[경기] 2026년 로컬 스타트업 챌린지 비즈니스 데이 참가기업 모집 공고(투자사 1:1 매칭)",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127329",
+      "period": "2026-10-19 ~ 2026-11-02"
+    },
     {
       "title": "[서울] 중랑구 2026년 사회적경제 팝업스토어 참여기업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127300",
@@ -40,16 +50,6 @@
       "title": "[서울] 광진구 2026년 우리동네 소상공인 경영주치의(시설개선) 참여업체 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127250",
       "period": "2026-10-14 ~ 2026-10-28"
-    },
-    {
-      "title": "2026년 대구국제기계산업대전 참가지원 추가모집 공고(생활지원을 위한 서비스로봇 부품 기술지원 기반구축 사업)",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127244",
-      "period": "2026-10-15 ~ 2026-10-21"
-    },
-    {
-      "title": "[경기] 이천시 2026년 5차 해외규격인증 지원사업 참여기업 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127224",
-      "period": "2026-10-15 ~ 2026-10-30"
     }
   ]
 }
