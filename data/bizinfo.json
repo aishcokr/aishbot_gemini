@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20 10:42:07",
+  "last_updated": "2026-10-20 16:04:43",
   "items": [
     {
       "title": "[경기] 안산시 2026년 일자리 창출 장려를 위한 고용우수기업 인증제 시행 공고",
@@ -37,11 +37,6 @@
       "period": "2026-10-14 ~ 2026-11-05"
     },
     {
-      "title": "[경기] 성남시 2026년 유관기관 협력(미디어마케팅지원-TV홈쇼핑) 지원사업 참가기업 추가모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127262",
-      "period": "2026-10-14 ~ 2026-10-20"
-    },
-    {
       "title": "[서울] 강남구 2026년 소싱인마켓 강남관 참가기업 추가 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127252",
       "period": "2026-10-12 ~ 2026-10-22"
@@ -50,6 +45,11 @@
       "title": "[서울] 광진구 2026년 우리동네 소상공인 경영주치의(시설개선) 참여업체 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127250",
       "period": "2026-10-14 ~ 2026-10-28"
+    },
+    {
+      "title": "2026년 대구국제기계산업대전 참가지원 추가모집 공고(생활지원을 위한 서비스로봇 부품 기술지원 기반구축 사업)",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127244",
+      "period": "2026-10-15 ~ 2026-10-21"
     }
   ]
 }
