@@ -1,6 +1,11 @@
 {
-  "last_updated": "2026-10-23 02:41:35",
+  "last_updated": "2026-10-23 10:45:11",
   "items": [
+    {
+      "title": "[서울] 강남구 2026년 일자리창출 우수기업 인증제 신청기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127425",
+      "period": "2026-10-29 ~ 2026-11-13"
+    },
     {
       "title": "[경기] 화성시 2026년 제4회 중소기업대상 추가모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127409",
@@ -45,11 +50,6 @@
       "title": "[경기] 의정부시 2026년 3차 해외전시회 참가기업 지원사업 추가 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127362",
       "period": "2026-10-20 ~ 2026-10-30"
-    },
-    {
-      "title": "[경기] 화성시 2026년 하반기 공급망 확대 사업화 기술컨설팅 참여기업 추가 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127361",
-      "period": "2026-10-19 ~ 2026-10-30"
     }
   ]
 }
