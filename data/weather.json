@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-10-27 00:14:00",
-  "temp": 16,
-  "description": "대체로 맑음",
-  "outfit": "최고 기온이 16°C의 쌀쌀한 날씨입니다. 맨투맨, 자켓, 얇은 코트를 추천합니다. 레이어드로 체온을 조절해 보세요.",
-  "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=가을+자켓+코디",
-  "date": "2026-10-27",
+  "last_updated": "2026-10-28 00:14:48",
+  "temp": 11,
+  "description": "맑음",
+  "outfit": "최고 기온이 11°C의 쌀쌀한 날씨입니다. 니트, 코트, 머플러를 추천합니다. 두꺼운 한 겹보다 얇은 레이어드 스타일이 체온 조절에 효과적입니다.",
+  "image": "https://images.unsplash.com/photo-1511401139252-f158d3209c17?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=겨울+코트+코디",
+  "date": "2026-10-28",
   "region": "서울",
-  "temp_min": 5,
-  "temp_max": 16,
+  "temp_min": 2,
+  "temp_max": 11,
   "rain": "없음",
-  "dust": "좋음 (13㎍/㎥)"
+  "dust": "좋음 (8㎍/㎥)"
 }
