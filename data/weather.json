@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-10-28 00:14:48",
+  "last_updated": "2026-10-29 00:36:10",
   "temp": 11,
-  "description": "맑음",
-  "outfit": "최고 기온이 11°C의 쌀쌀한 날씨입니다. 니트, 코트, 머플러를 추천합니다. 두꺼운 한 겹보다 얇은 레이어드 스타일이 체온 조절에 효과적입니다.",
-  "image": "https://images.unsplash.com/photo-1511401139252-f158d3209c17?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=겨울+코트+코디",
-  "date": "2026-10-28",
+  "description": "비",
+  "outfit": "비 오는 날엔 방수 재킷이나 레인코트를 챙기세요. 어두운 색 하의와 방수 신발로 마무리하면 실용적입니다. 접이식 우산도 잊지 마세요.",
+  "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=레인코트",
+  "date": "2026-10-29",
   "region": "서울",
-  "temp_min": 2,
+  "temp_min": 5,
   "temp_max": 11,
-  "rain": "없음",
-  "dust": "좋음 (8㎍/㎥)"
+  "rain": "3.8mm 예상",
+  "dust": "좋음 (27㎍/㎥)"
 }
