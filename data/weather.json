@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-10-30 00:36:39",
-  "temp": 18,
-  "description": "부분적으로 흐림",
-  "outfit": "일교차가 11°C로 큽니다. 아침저녁엔 얇은 겉옷이나 가디건을 챙기고, 낮에는 가볍게 반팔 또는 얇은 긴팔 티셔츠를 입으세요.",
-  "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=60&auto=format",
-  "link": "https://www.musinsa.com/search/snap?keyword=가디건+코디",
-  "date": "2026-10-30",
+  "last_updated": "2026-10-31 00:21:56",
+  "temp": 13,
+  "description": "흐림",
+  "outfit": "최고 기온이 13°C의 쌀쌀한 날씨입니다. 맨투맨, 자켓, 얇은 코트를 추천합니다. 레이어드로 체온을 조절해 보세요.",
+  "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=가을+자켓+코디",
+  "date": "2026-10-31",
   "region": "서울",
   "temp_min": 7,
-  "temp_max": 18,
+  "temp_max": 13,
   "rain": "없음",
-  "dust": "보통 (69㎍/㎥)"
+  "dust": "좋음 (7㎍/㎥)"
 }
