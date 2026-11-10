@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10 13:59:46",
+  "last_updated": "2026-11-10 22:40:44",
   "items": [
     {
       "title": "[경기] 2026년 국내ㆍ외 우수 물기술 인ㆍ검증 지원사업 참여기업 모집 연장 공고",
@@ -42,14 +42,14 @@
       "period": "2026-11-04 ~ 2026-11-13"
     },
     {
-      "title": "[경기] 시흥시 2026년 산업안전 개선 지원사업 추가모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127719",
-      "period": "2026-11-04 ~ 2026-11-10"
-    },
-    {
       "title": "[경기] 안양시 2026년 유망기업 육성 지원사업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127714",
       "period": "2026-11-16 ~ 2026-11-17"
+    },
+    {
+      "title": "[경기] 이천시 2026년 신중년 고용창출 우수기업 작업환경 개선사업(기준완화) 참여기업 추가모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127690",
+      "period": "2026-10-30 ~ 2026-11-20"
     }
   ]
 }
