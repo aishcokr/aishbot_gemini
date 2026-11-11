@@ -1,6 +1,11 @@
 {
-  "last_updated": "2026-11-11 03:53:41",
+  "last_updated": "2026-11-11 13:16:33",
   "items": [
+    {
+      "title": "[경기] 성남시 2026년 중소기업 온라인 판로지원 사업 누리성남 입점 기업 모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127843",
+      "period": "예산 소진 시"
+    },
     {
       "title": "[경기] 2026년 국내ㆍ외 우수 물기술 인ㆍ검증 지원사업 참여기업 모집 연장 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127809",
@@ -45,11 +50,6 @@
       "title": "[경기] 안양시 2026년 유망기업 육성 지원사업 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127714",
       "period": "2026-11-16 ~ 2026-11-17"
-    },
-    {
-      "title": "[경기] 이천시 2026년 신중년 고용창출 우수기업 작업환경 개선사업(기준완화) 참여기업 추가모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127690",
-      "period": "2026-10-30 ~ 2026-11-20"
     }
   ]
 }
