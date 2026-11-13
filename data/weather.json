@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-11-12 02:06:53",
+  "last_updated": "2026-11-13 01:40:05",
   "temp": 15,
   "description": "흐림",
   "outfit": "최고 기온이 15°C의 쌀쌀한 날씨입니다. 맨투맨, 자켓, 얇은 코트를 추천합니다. 레이어드로 체온을 조절해 보세요.",
   "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=60&auto=format",
   "link": "https://www.musinsa.com/search/snap?keyword=가을+자켓+코디",
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "region": "서울",
-  "temp_min": 6,
+  "temp_min": 8,
   "temp_max": 15,
   "rain": "없음",
-  "dust": "보통 (31㎍/㎥)"
+  "dust": "보통 (40㎍/㎥)"
 }
