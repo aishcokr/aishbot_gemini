@@ -1,6 +1,11 @@
 {
-  "last_updated": "2026-11-17 03:23:36",
+  "last_updated": "2026-11-17 15:14:21",
   "items": [
+    {
+      "title": "[경기] 2026년 국내ㆍ외 물산업 박람회 전시지원 참여기업 추가모집 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127972",
+      "period": "2026-11-16 ~ 2026-11-30"
+    },
     {
       "title": "[서울] 중랑구 2027년 유기질비료 지원사업 추가ㆍ변경 신청 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127949",
@@ -45,11 +50,6 @@
       "title": "[경기] 양주시 2027년 유기농업자재 지원사업 신청 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127899",
       "period": "2026-11-09 ~ 2026-12-31"
-    },
-    {
-      "title": "[경기] 시흥시 2027년 유기질비료 지원사업 추가 신청 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127898",
-      "period": "2026-11-09 ~ 2026-12-04"
     }
   ]
 }
