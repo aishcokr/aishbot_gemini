@@ -1,6 +1,11 @@
 {
-  "last_updated": "2026-11-19 05:12:22",
+  "last_updated": "2026-11-19 14:57:15",
   "items": [
+    {
+      "title": "[경기] 하남시 2027년 유기농업자재 지원사업 신청 공고",
+      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000128025",
+      "period": "2026-11-18 ~ 2026-12-31"
+    },
     {
       "title": "[경기] 구리시 2026년 농산물유통사업 물류비 지원 신청 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000128009",
@@ -45,11 +50,6 @@
       "title": "2027년 춘계(27 F/W) 서울패션위크 트레이드쇼 개별 브랜드 모집 공고",
       "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127942",
       "period": "2026-11-25 ~ 2026-12-14"
-    },
-    {
-      "title": "2027년 춘계(27 F/W) 서울패션위크 트레이드쇼 기업관 모집 공고",
-      "link": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?hashCode=&rowsSel=&rows=15&cpage=&cat=&schPblancDiv=&schJrsdCodeTy=&schWntyAt=&schAreaDetailCodes=6110000%2C6410000&schEndAt=N&orderGb=&sort=&preKeywords=&condition=&condition1=&keyword=&pblancId=PBLN_000000000127941",
-      "period": "2026-11-13 ~ 2027-01-12"
     }
   ]
 }
