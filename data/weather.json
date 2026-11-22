@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-11-21 01:58:17",
-  "temp": null,
-  "description": "수집 실패",
-  "outfit": "",
-  "image": "",
-  "link": "",
-  "date": "2026-11-21",
+  "last_updated": "2026-11-22 00:56:48",
+  "temp": 4,
+  "description": "대체로 맑음",
+  "outfit": "최고 기온이 4°C의 추운 날씨입니다. 패딩, 두꺼운 코트, 목도리, 장갑을 챙기세요. 방한 부츠로 체온을 지켜 주세요.",
+  "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=800&q=60&auto=format",
+  "link": "https://www.musinsa.com/search/snap?keyword=겨울+패딩",
+  "date": "2026-11-22",
   "region": "서울",
-  "temp_min": null,
-  "temp_max": null,
-  "rain": "",
-  "dust": ""
+  "temp_min": -4,
+  "temp_max": 4,
+  "rain": "없음",
+  "dust": "좋음 (26㎍/㎥)"
 }
