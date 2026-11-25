@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-11-24 05:07:53",
-  "temp": 5,
+  "last_updated": "2026-11-25 03:56:44",
+  "temp": 6,
   "description": "부분적으로 흐림",
-  "outfit": "최고 기온이 5°C의 쌀쌀한 날씨입니다. 니트, 코트, 머플러를 추천합니다. 두꺼운 한 겹보다 얇은 레이어드 스타일이 체온 조절에 효과적입니다.",
+  "outfit": "최고 기온이 6°C의 쌀쌀한 날씨입니다. 니트, 코트, 머플러를 추천합니다. 두꺼운 한 겹보다 얇은 레이어드 스타일이 체온 조절에 효과적입니다.",
   "image": "https://images.unsplash.com/photo-1511401139252-f158d3209c17?w=800&q=60&auto=format",
   "link": "https://www.musinsa.com/search/snap?keyword=겨울+코트+코디",
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "region": "서울",
-  "temp_min": -3,
-  "temp_max": 5,
+  "temp_min": -4,
+  "temp_max": 6,
   "rain": "없음",
-  "dust": "좋음 (11㎍/㎥)"
+  "dust": "좋음 (29㎍/㎥)"
 }
